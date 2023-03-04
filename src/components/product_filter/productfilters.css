@@ -1,0 +1,25 @@
+.product_filters_gallery_container_main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.product_filters_gallery_container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem 0 0 0;
+}
+
+.product_filters_div {
+    width: 25%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}

@@ -1,0 +1,43 @@
+.adminLoginConatiner {
+    background-color: var(--white-bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBox {
+    width: 400px;
+    height: 500px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.loginTextBox {
+    border: 0.5px solid var(--grey-1);
+    height: 50px;
+    border-radius: 8px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#loginBt {
+    height: 50px;
+    position: relative;
+    background-color: var(--blue);
+    width: 100%;
+    border-radius: 8px;
+    color: var(--white);
+    font-size: var(--font-16);
+    font-weight: 600;
+}

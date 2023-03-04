@@ -1,0 +1,125 @@
+.TopProductModuleContainer {
+    position: relative;
+    border-radius: 16px;
+    max-width: 1400px;
+    width: 39.6vw;
+    top: 2rem;
+    /* height: 450px; */
+    max-height: 400px;
+    background-color: var(--white);
+    box-shadow: 0 1px 5px -2px var(--grey-1);
+}
+
+.TopProductModuleHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 4rem;
+}
+
+.TopProductModuleHeader1 {
+    font-size: var(--font-20);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+#QuarterlyBtOfTopProducts {
+    all: unset;
+    padding: 1rem;
+    border: 1px solid var(--grey-1);
+    border-radius: 16px 0 0 16px;
+    font-size: var(--font-13);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#AnnuallyBtOfTopProducts {
+    all: unset;
+    padding: 1rem;
+    border: 1px solid var(--grey-1);
+    border-radius: 0 16px 16px 0;
+    cursor: pointer;
+    font-size: var(--font-13);
+    font-weight: 500;
+}
+
+.TopProductModuleListConatiner {
+    padding: 0rem 4rem;
+}
+
+.TopProductModuleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--grey-1);
+}
+
+.TopProductModuleName {
+    font-size: var(--font-16);
+    font-weight: 600;
+}
+
+.TopProductModuleSaleCount {
+    font-size: var(--font-16);
+    font-weight: 600;
+}
+
+.TopProductModuleSaleCountSpan {
+    font-size: var(--font-16);
+    font-weight: 600;
+    color: var(--grey-3);
+}
+
+@media (min-width:0em) and (max-width:380px) {
+    #QuarterlyBtOfTopProducts {
+        display: none;
+    }
+    #AnnuallyBtOfTopProducts {
+        display: none;
+    }
+    .TopProductModuleContainer {
+        width: 81vw;
+    }
+}
+
+@media (min-width:380px) and (max-width:766px) {
+    .TopProductModuleContainer {
+        width: 81vw;
+    }
+    #QuarterlyBtOfTopProducts {
+        display: none;
+    }
+    #AnnuallyBtOfTopProducts {
+        display: none;
+    }
+}
+
+@media (min-width:0em) and (max-width:992px) and (orientation: landscape) {}
+
+@media (min-width:766px) and (max-width:992px) {
+    #QuarterlyBtOfTopProducts {
+        display: none;
+    }
+    #AnnuallyBtOfTopProducts {
+        display: none;
+    }
+}
+
+@media (min-width:993px) and (max-width:1200px) {
+    .TopProductModuleContainer {
+        width: 35.2vw;
+    }
+    #QuarterlyBtOfTopProducts {
+        display: none;
+    }
+    #AnnuallyBtOfTopProducts {
+        display: none;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+    .TopProductModuleContainer {
+        width: 35.2vw;
+    }
+}

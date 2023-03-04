@@ -1,0 +1,30 @@
+.product_path {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--font-13);
+    font-weight: 400;
+    color: var(--grey-1);
+}
+
+.final_path {
+    color: var(--black);
+}
+
+.home_img {
+    margin-top: -0.4vh;
+}
+
+@media (min-width:0em) and (max-width:766px) {
+    .product_path {
+        padding: 1rem;
+        font-size: var(--font-13-r2);
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .product_path {
+        font-size: var(--font-13-r2);
+        padding: 1rem;
+    }
+}

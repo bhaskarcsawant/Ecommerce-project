@@ -1,0 +1,11 @@
+.salenote_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vw;
+    background-color: var(--grey-1);
+}
+
+.salenote {
+    font-size: 9px;
+    font-weight: 600;
+}

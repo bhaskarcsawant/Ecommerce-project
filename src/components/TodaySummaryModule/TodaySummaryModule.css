@@ -1,0 +1,232 @@
+.TodaySummaryModuleContainer {
+    position: relative;
+    border-radius: 16px;
+    max-width: 1400px;
+    width: 81vw;
+    /* height: 450px; */
+    max-height: 400px;
+    background-color: var(--white);
+    box-shadow: 0 1px 5px -2px var(--grey-1);
+    padding-bottom: 4rem;
+    /* border: 1px solid var(--grey-1); */
+}
+
+.TodaySummaryModuleHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 4rem;
+}
+
+.SummaryModuleHeader1 {
+    font-size: var(--font-20);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.SummaryModuleHeader2 {
+    font-size: var(--font-16);
+    font-weight: 400;
+    color: var(--grey-3);
+}
+
+#exportIcon {
+    all: unset;
+    border-radius: 10px;
+    border: 1px solid var(--grey-1);
+    padding: 1rem 2rem;
+    font-size: var(--font-16);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+#exportIcon>img {
+    width: 20px;
+}
+
+.TodaySummaryModuleStatsContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    /* gap: 2rem; */
+}
+
+.TotalSalesStatContainer {
+    max-width: 250px;
+    width: 240px;
+    /* height: 300px; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: var(--light-pink);
+}
+
+.TotalSalesStatContainer1 {
+    max-width: 250px;
+    /* height: 300px; */
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: var(--light-yellow);
+}
+
+.TotalSalesStatContainer2 {
+    max-width: 250px;
+    width: 240px;
+    /* height: 300px; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: var(--light-green);
+}
+
+.TotalSalesStatContainer3 {
+    max-width: 250px;
+    width: 240px;
+    /* height: 300px; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: var(--light-purple);
+}
+
+.totalSales {
+    width: 45px;
+}
+
+.totalSalesCount {
+    font-size: var(--font-29);
+    font-weight: 700;
+}
+
+.totalSalesHeader {
+    font-size: var(--font-20);
+    font-weight: 500;
+    color: var(--grey-3);
+    margin-top: 0.5rem;
+}
+
+.previousDayPercentage {
+    font-size: var(--font-16);
+    font-weight: 400;
+    color: var(--blue-light);
+}
+
+@media (min-width:0em) and (max-width:766px) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 2rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: fit-content;
+        padding-bottom: 3rem;
+    }
+    #exportIcon {
+        all: unset;
+        border-radius: 10px;
+        border: 1px solid var(--grey-1);
+        padding: 0.8rem 1.6rem;
+        font-size: var(--font-16);
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+        display: none;
+    }
+    #exportIcon>img {
+        width: 20px;
+    }
+}
+
+@media (min-width:0em) and (max-width:992px) and (orientation: landscape) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 2rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: fit-content;
+        padding-bottom: 3rem;
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 4rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 4rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: 660px;
+        padding-bottom: 3rem;
+    }
+}
+
+@media (min-width:993px) and (max-width:1200px) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 4rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 4rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 75vw;
+    }
+}
+
+@media (min-width:1020px) and (max-width:1200px) and (orientation: landscape) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 4rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 4rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 72vw;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+    .TodaySummaryModuleStatsContainer {
+        gap: 4rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 4rem;
+    }
+    .TodaySummaryModuleContainer {
+        /* height: 450px; */
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 72vw;
+    }
+}

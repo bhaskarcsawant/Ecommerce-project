@@ -1,0 +1,133 @@
+.SalesXProfitChartModuleContainer {
+    position: relative;
+    border-radius: 16px;
+    max-width: 1400px;
+    width: 39.6vw;
+    top: 2rem;
+    /* height: 450px; */
+    max-height: 400px;
+    background-color: var(--white);
+    box-shadow: 0 1px 5px -2px var(--grey-1);
+}
+
+.SalesXProfitChartModuleHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 4rem;
+}
+
+.SalesXProfitModuleHeader1 {
+    font-size: var(--font-20);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.SalesXProfitModuleHeader2 {
+    font-size: var(--font-16);
+    font-weight: 400;
+    color: var(--grey-3);
+}
+
+#QuarterlyBt {
+    all: unset;
+    padding: 1rem;
+    border: 1px solid var(--grey-1);
+    border-radius: 16px 0 0 16px;
+    font-size: var(--font-13);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#AnnuallyBt {
+    all: unset;
+    padding: 1rem;
+    border: 1px solid var(--grey-1);
+    border-radius: 0 16px 16px 0;
+    cursor: pointer;
+    font-size: var(--font-13);
+    font-weight: 500;
+}
+
+#SalesXProfit {
+    width: 35vw;
+    height: 200px;
+}
+
+.SalesXProfitChartModuleBarContainer {
+    padding: 3rem 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:0em) and (max-width:380px) {
+    #QuarterlyBt {
+        padding: 0.4rem;
+        font-size: 10px;
+    }
+    #AnnuallyBt {
+        padding: 0.4rem;
+        font-size: 10px;
+    }
+    .SalesXProfitChartModuleContainer {
+        width: 81vw;
+    }
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (min-width:380px) and (max-width:766px) {
+    .SalesXProfitChartModuleContainer {
+        width: 81vw;
+    }
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 2rem;
+    }
+    #QuarterlyBt {
+        padding: 0.6rem;
+        font-size: var(--font-13);
+    }
+    #AnnuallyBt {
+        padding: 0.6rem;
+        font-size: var(--font-13);
+    }
+}
+
+@media (min-width:0em) and (max-width:992px) and (orientation: landscape) {
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 8rem;
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 2rem;
+    }
+    #QuarterlyBt {
+        padding: 0.4rem;
+        font-size: 10px;
+    }
+    #AnnuallyBt {
+        padding: 0.4rem;
+        font-size: 10px;
+    }
+}
+
+@media (min-width:993px) and (max-width:1200px) {
+    .SalesXProfitChartModuleContainer {
+        width: 35.2vw;
+    }
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+    .SalesXProfitChartModuleContainer {
+        width: 35.2vw;
+    }
+    .SalesXProfitChartModuleBarContainer {
+        padding: 3rem 2rem;
+    }
+}

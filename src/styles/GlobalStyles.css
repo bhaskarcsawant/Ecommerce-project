@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,900&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&family=Inter:wght@300;400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    user-select: none;
+}
+
+:root {
+    --black: black;
+    --white: white;
+    --white-bg: #F9FAFB;
+    --white-bg-1: #eceef0;
+    --blue: #1C64F2;
+    --blue-light: #4079ED;
+    --green: green;
+    --dark-text: #05004E;
+    --grey-1: #CECECE;
+    --light-pink: #FFE2E5;
+    --light-yellow: #FFF4DE;
+    --light-green: #DCFCE7;
+    --light-purple: #F3E8FF;
+    --grey-2: #A8A8A8;
+    --grey-3: #425166;
+    --red: #FF0000;
+    --yellow: #FBB03B;
+    --font-13-r: 1.3vw;
+    --font-13-r-1: 0.9vw;
+    --font-13-r-2: 1.1vw;
+    --font-13-r1: 1.5vw;
+    --font-13-r2: 2.4vw;
+    --font-13-r4: 3.2vw;
+    --font-13-r3: 12px;
+    --font-13: 13px;
+    --font-14: 14px;
+    --font-16: 16px;
+    --font-20: 20px;
+    --font-22: 22px;
+    --font-24-r: 1.5vw;
+    --font-24-r1: 4vw;
+    --font-24: 24px;
+    --font-29: 29px;
+    --font-30: 30px;
+    --font-66: 5vw;
+    --font-66-r: 10.5vw;
+    --font-66-r1: 6.5vw;
+}
+
+html {
+    font-size: 10px;
+    overflow-x: hidden !important;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}

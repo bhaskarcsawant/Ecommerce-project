@@ -1,0 +1,4 @@
+#OrderListModuleTableRow:hover {
+    cursor: pointer;
+    background-color: var(--white-bg);
+}

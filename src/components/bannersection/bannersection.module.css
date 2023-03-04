@@ -1,0 +1,217 @@
+.container_banner_main {
+    padding: 8rem;
+}
+
+.banner_container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 3rem;
+    margin: 0 auto;
+    /* background-color: aqua; */
+    display: flex;
+    gap: 2rem;
+}
+
+.banner_div {
+    position: relative;
+    /* padding: 5rem; */
+    /* background-color: rgb(0, 255, 170); */
+    /* width: 100%; */
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    gap: 2rem;
+}
+
+.banner_div_1 {
+    position: relative;
+    /* padding: 5rem; */
+    /* background-color: rgb(0, 255, 170); */
+    width: 100%;
+    display: flex;
+    /* background-color: aqua; */
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    gap: 2rem;
+}
+
+.sub_banner_div {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.banner_bg_img {
+    object-fit: cover;
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+
+.banner_data {
+    position: absolute;
+    padding: 15rem 5rem 1rem 5rem;
+    max-width: 20vw;
+}
+
+.banner_header {
+    font-size: var(--font-24);
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    top: 4rem;
+}
+
+.banner_btn {
+    width: 16rem;
+    font-size: var(--font-13);
+    font-weight: 600;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 5rem;
+    padding: 1.3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    top: 7rem;
+}
+
+.banner_data_1 {
+    position: absolute;
+    padding: 13rem 5rem 1rem 3rem;
+    max-width: 25rem;
+}
+
+.banner_header_1 {
+    font-size: var(--font-24);
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    top: -3rem;
+}
+
+.banner_btn_1 {
+    width: 13rem;
+    font-size: var(--font-13);
+    font-weight: 600;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 5rem;
+    padding: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.discount {
+    position: absolute;
+    font-size: var(--font-13);
+    color: var(--white);
+    background-color: var(--red);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5rem;
+    top: 6rem;
+}
+
+@media (min-width:993px) and (max-width:1250px) {
+    .banner_container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 3rem;
+        margin: 0 auto;
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .banner_header {
+        font-size: var(--font-24-r1);
+        top: -3rem;
+    }
+    .banner_btn {
+        width: 16vw;
+        font-size: var(--font-13-r);
+        position: relative;
+        top: -1rem;
+    }
+    .banner_data {
+        max-width: 35vw;
+    }
+    .banner_header_1 {
+        font-size: var(--font-24-r1);
+    }
+    .banner_btn_1 {
+        width: 16vw;
+        font-size: var(--font-13-r);
+        position: relative;
+        top: -1rem;
+    }
+    .banner_data_1 {
+        max-width: 35vw;
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .banner_container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 3rem;
+        margin: 0 auto;
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .banner_header {
+        font-size: var(--font-24-r1);
+        top: -3rem;
+    }
+    .banner_btn {
+        width: 16vw;
+        font-size: var(--font-13-r);
+        position: relative;
+        top: -1rem;
+    }
+    .banner_data {
+        max-width: 40vw;
+    }
+    .banner_header_1 {
+        font-size: var(--font-24-r1);
+    }
+    .banner_btn_1 {
+        width: 16vw;
+        font-size: var(--font-13-r);
+        position: relative;
+        top: -1rem;
+    }
+    .banner_data_1 {
+        max-width: 40vw;
+    }
+}
+
+@media (min-width:540px) and (max-width:992px) and (orientation: landscape) {
+    .container_banner_main {
+        display: none;
+    }
+}
+
+@media (min-width:480px) and (max-width:766px) {
+    .container_banner_main {
+        display: none;
+    }
+}
+
+@media (min-width:281px) and (max-width:480px) {
+    .container_banner_main {
+        display: none;
+    }
+}
+
+@media (min-width:0em) and (max-width:281px) {
+    .container_banner_main {
+        display: none;
+    }
+}

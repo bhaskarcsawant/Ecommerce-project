@@ -1,0 +1,87 @@
+.NavBarContainer {
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--grey-1);
+    position: fixed;
+    z-index: 3;
+    /* box-shadow: 1px 0px 5px -2px var(--grey-1); */
+}
+
+.NavLeftContainer {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.NavRightContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.AdminNavlogo {
+    font-size: var(--font-16);
+}
+
+.input {
+    width: 280px;
+    display: block;
+    border-radius: 8px;
+    font-size: var(--font-16);
+    font-weight: 400;
+    padding: 0.5rem 0.5rem 0.5rem 5rem;
+    border: 2px solid var(--grey-1);
+    color: var(--black-3);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.searchBt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.HamBurger {
+    display: none;
+}
+
+@media (min-width:0em) and (max-width:766px) {
+    .input,
+    .searchBt,
+    .AdminNavlogo {
+        display: none;
+    }
+    .HamBurger {
+        display: block;
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .input,
+    .searchBt,
+    .AdminNavlogo {
+        display: none;
+    }
+    .HamBurger {
+        display: block;
+    }
+}

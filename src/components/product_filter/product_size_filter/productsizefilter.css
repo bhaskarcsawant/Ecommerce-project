@@ -1,0 +1,50 @@
+.product_price_filter_container {
+    width: 100%;
+    /* background-color: aqua; */
+    padding: 2rem 0;
+    height: 6rem;
+    overflow-y: hidden;
+    border: 1px solid var(--grey-1);
+}
+
+.filter_header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.filter_header {
+    font-size: var(--font-13);
+}
+
+.dropdown_icon {
+    transform: rotate(180deg);
+}
+
+.select_filters_div {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_name_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter_name_header {
+    font-size: var(--font-13-r-2);
+    font-weight: 400;
+}
+
+.count_bracket {
+    color: var(--grey-1);
+}

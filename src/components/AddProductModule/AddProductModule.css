@@ -1,0 +1,278 @@
+.AddProductModuleContainer {
+    position: relative;
+    border-radius: 16px;
+    max-width: 1400px;
+    width: 81vw;
+    /* height: 450px; */
+    max-height: 700px;
+    background-color: var(--white);
+    box-shadow: 0 1px 5px -2px var(--grey-1);
+    padding-bottom: 4rem;
+}
+
+.AddProductModuleHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 4rem;
+}
+
+.AddProductModuleHeader1 {
+    font-size: var(--font-20);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+#createProductBt {
+    all: unset;
+    border-radius: 10px;
+    border: 1px solid var(--grey-1);
+    background-color: var(--blue);
+    padding: 1rem 2rem;
+    font-size: var(--font-16);
+    color: var(--white);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+#plusIcon {
+    font-size: var(--font-22);
+    font-weight: 800;
+}
+
+.AddProductModuleForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); */
+    gap: 2rem;
+    padding: 0 4rem 2rem 4rem;
+}
+
+.AddProductModuleForm1 {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); */
+    grid-template-columns: auto auto;
+    padding: 0 4rem 2rem 4rem;
+}
+
+.AddProductModuleFormInput {
+    border: 1px solid var(--grey-1);
+    height: 50px;
+    border-radius: 16px;
+}
+
+.AddProductModuleFormHeader {
+    font-size: var(--font-16);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.AddProductModuleFormDropdown {
+    /* max-width: 255px; */
+    width: 30rem;
+    padding: 0 2rem;
+    height: 50px;
+    border-radius: 16px;
+}
+
+.AddProductModuleFormTextarea {
+    border-radius: 16px;
+    border: 1px solid var(--grey-1);
+    resize: none;
+}
+
+.AddProductModuleFormCheckbox {
+    border: 1px solid var(--grey-1);
+    width: 2rem;
+    position: relative;
+}
+
+.checkboxContainer {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); */
+    grid-template-columns: auto auto auto auto;
+    width: 6rem;
+    gap: 1rem;
+}
+
+.AddProductModuleFormProductSize {
+    font-size: var(--font-16);
+    font-weight: 500;
+}
+
+.imageUpload {
+    cursor: pointer;
+    width: 350px;
+    display: flex;
+    padding: 4rem 0 0 8rem;
+    border: 1px solid var(--grey-1);
+    height: 110px;
+}
+
+.previewImage {
+    width: 100px;
+    margin-left: 1rem;
+}
+
+.PreviewImgContainer {
+    display: flex;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.previewImageCloseIcon {
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: yellow;
+    position: absolute;
+    cursor: pointer;
+}
+
+@media (min-width:0em) and (max-width:766px) {
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+    }
+    .AddProductModuleForm1 {
+        /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 23rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}
+
+@media (min-width:0em) and (max-width:992px) and (orientation: landscape) {
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+    }
+    .AddProductModuleForm1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 23rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}
+
+@media (min-width:766px) and (max-width:992px) {
+    .AddProductModuleContainer {
+        max-height: 650px;
+        padding-bottom: 3rem;
+    }
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+    }
+    .AddProductModuleForm1 {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 18rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}
+
+@media (min-width:993px) and (max-width:1200px) {
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 75vw;
+    }
+    .AddProductModuleForm1 {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 23rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}
+
+@media (min-width:1020px) and (max-width:1200px) and (orientation: landscape) {
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 72vw;
+    }
+    .AddProductModuleForm1 {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 23rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+    .AddProductModuleContainer {
+        max-height: fit-content;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+        width: 72vw;
+    }
+    .AddProductModuleForm1 {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 2rem;
+    }
+    .AddProductModuleFormDropdown {
+        /* max-width: 255px; */
+        width: 23rem;
+    }
+    .AddProductModuleFormTextarea {
+        width: 23rem;
+    }
+    .imageUpload {
+        width: 23rem;
+        padding: 4rem 0 0 2rem;
+    }
+}

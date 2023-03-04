@@ -1,0 +1,32 @@
+.CartProductComponentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-top: 1px solid var(--grey-1);
+    border-bottom: 1px solid var(--grey-1);
+    margin-top: 1rem;
+}
+
+.carted_product_size_color_container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.carted_product_price_counter_container {
+    display: flex;
+    align-items: center !important;
+    gap: 3rem;
+}
+
+.product_cart_price_mob {
+    font-size: var(--font-16);
+    font-weight: 600;
+}
+
+.product_cart_delete_icon {
+    margin: 0.6rem 0 0 0rem;
+}
+
+@media (min-width:0em) and (max-width:780px) {}
