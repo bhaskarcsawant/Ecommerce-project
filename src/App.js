@@ -33,6 +33,7 @@ function App() {
           <Route path="admin/dashboard/orderlist/" element={<OrderList />} />
           <Route path="admin/dashboard/transactionlist/" element={<TransactionList />} />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
+          <Route path="admin/dashboard/settings/" element={<Settings />} />
 
         </Routes>
       </Router>
