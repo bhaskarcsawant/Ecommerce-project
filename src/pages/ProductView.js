@@ -11,7 +11,7 @@ function Productview() {
     return (
         <>
             <SaleNote />
-            <NavBar theme='dark' />
+            <NavBar />
             <ProductViewDetails />
             <ProductCarousel />
             <NewsLetter />

@@ -7,7 +7,7 @@ import Footer from '../components/footer/Footer'
 function ProductFilterPage() {
     return (
         <>
-            <NavBar theme='dark' />
+            <NavBar />
             <ProductFilters />
             <NewsLetter />
             <Footer />
