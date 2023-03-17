@@ -9,7 +9,7 @@ import ShoppingCartContainer from '../components/shoppingcartcontainer/ShoppingC
 function ShoppingCart() {
     return (
         <>
-            <NavBar theme='dark' />
+            <NavBar />
             <ShoppingCartContainer />
             <Footer />
         </>
