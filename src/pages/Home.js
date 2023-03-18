@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BannerSection from '../components/bannersection/BannerSection'
 import BuildTrust from '../components/buildtrust/BuildTrust'
 import Footer from '../components/footer/Footer'
@@ -7,16 +7,24 @@ import NavBar from '../components/navbar/NavBar'
 import NewsLetter from '../components/newsletter/NewsLetter'
 import ProductCarousel from '../components/product_carousel/ProductCarousel'
 import NewProducts from '../components/todaysproducts/NewProducts'
+import { getProducts } from '../actions/productsAction'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 function Home() {
+    const dispatch = useDispatch()
+
+    const { loading, error, products, productCount } = useSelector((state) => state.products)
+    useEffect(() => {
+        dispatch(getProducts)
+    }, [dispatch])
     return (
         <>
 
             <NavBar />
             <HeroSection />
             <BannerSection />
-            <ProductCarousel />
+            <ProductCarousel products={products} />
             <NewProducts />
             <BuildTrust />
             <NewsLetter />

@@ -5,7 +5,7 @@ import './product_carousel.css'
 import { Link } from 'react-router-dom'
 
 
-function ProductCarousel() {
+function ProductCarousel({ products }) {
     let box
 
     const btnpressprev = () => {
@@ -35,8 +35,8 @@ function ProductCarousel() {
         // console.log(width)
     }
     useEffect(() => {
-        box = document.querySelector('.product-container');
-    }, [])
+        box = document.getElementById('product-container');
+    }, [products])
     const handlers = useSwipeable({
         onSwipedLeft: () => swipenext(),
         onSwipedRight: () => swipeprev(),
@@ -58,14 +58,14 @@ function ProductCarousel() {
             </div>
             <div className="product-carousel">
 
-                <div {...handlers} className="product-container" >
+                <div {...handlers} className="product-container" id='product-container' >
+                    {products ? products.map(product => <ProductCard data={product} key={product._id} />) : null}
+                    {/* <ProductCard />
                     <ProductCard />
                     <ProductCard />
                     <ProductCard />
                     <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    <ProductCard /> */}
                 </div>
             </div>
         </>
