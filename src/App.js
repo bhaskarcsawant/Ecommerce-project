@@ -22,7 +22,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="product" element={<Productview />} />
+          <Route path="product/:id" element={<Productview />} />
           <Route path="cart" element={<ShoppingCart />} />
           <Route path="products" element={<ProductFilterPage />} />
           <Route path="admin" element={<Admin />} />

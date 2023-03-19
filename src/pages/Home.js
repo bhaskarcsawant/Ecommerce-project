@@ -9,6 +9,7 @@ import ProductCarousel from '../components/product_carousel/ProductCarousel'
 import NewProducts from '../components/todaysproducts/NewProducts'
 import { getProducts } from '../actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
+import Loader from '../components/Loader/Loader'
 
 
 function Home() {
@@ -20,15 +21,18 @@ function Home() {
     }, [dispatch])
     return (
         <>
-
-            <NavBar />
-            <HeroSection />
-            <BannerSection />
-            <ProductCarousel products={products} />
-            <NewProducts />
-            <BuildTrust />
-            <NewsLetter />
-            <Footer />
+            {loading ? (<Loader />) : (
+                <>
+                    <NavBar />
+                    <HeroSection />
+                    <BannerSection />
+                    <ProductCarousel products={products} />
+                    <NewProducts />
+                    <BuildTrust />
+                    <NewsLetter />
+                    <Footer />
+                </>
+            )}
         </>
     )
 }

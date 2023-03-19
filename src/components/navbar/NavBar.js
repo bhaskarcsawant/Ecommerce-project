@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './navbar.module.css'
 import { Link } from 'react-router-dom'
 
-function NavBar({ theme }) {
+function NavBar({ theme, page }) {
     console.log(theme)
+
+    useEffect(() => {
+        if (page === "productView") {
+            document.getElementById("search-img-dark").style.top = "-0.8rem"
+
+        }
+    }, [])
     const handleHamburger = () => {
         var slide_nav = document.getElementById('slide_nav')
         var slide_nav_bg = document.getElementById('slide_nav_bg')
@@ -39,11 +46,12 @@ function NavBar({ theme }) {
                     </div>
                     <div className={styles.nav_link_container}>
                         <div className={styles.nav_item_container_1}>
+
                             <form>
                                 <input className={styles[(theme === 'dark' ? 'input_dark' : 'input')]} type="text" name="" placeholder="Search products" />
                                 <button type="submit">
                                     <img className={styles.hero_search_img} src={require('./assets/search.png')} alt='' />
-                                    <img className={styles.hero_search_dark_img} src={require('./assets/search_dark.png')} alt='' />
+                                    <img className={styles.hero_search_dark_img} id="search-img-dark" src={require('./assets/search_dark.png')} alt='' />
                                 </button>
                             </form>
                             <Link to="/cart">
