@@ -6,7 +6,7 @@ import './productviewdetails.css'
 
 
 
-function ProductViewDetails({ product, loading }) {
+function ProductViewDetails({ product }) {
     const [counter, setCounter] = useState(1)
     const [display, setDisplay] = useState()
     const add_counter = () => {
@@ -159,21 +159,27 @@ function ProductViewDetails({ product, loading }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="quantity_add_cart_like_container">
-                                <h3 className='quantity_header'>Quantity:</h3>
-                                <div className="quantity_add_cart_like_div">
-                                    <div className="counter_container">
-                                        <div className="minus_icon" onClick={() => minus_counter()}>-</div>
-                                        <div className="counter">{counter}</div>
-                                        <div className="plus_icon" onClick={() => add_counter()}>+</div>
-                                    </div>
-                                    <button className='add_to_cart_btn'>ADD TO CART</button>
-                                    <button className='like_btn'>
-                                        <img className='like_img' src={require('./assets/like.png')} alt="" />
-                                    </button>
+                            {product.stock < 1 ? (
+                                // <button className='add_to_cart_btn'>o</button>
+                                <h2 style={{ color: "var(--red)", paddingTop: "7%" }}>Out of stock</h2>
+                            ) : (
+                                <div className="quantity_add_cart_like_container">
+                                    <h3 className='quantity_header'>Quantity:</h3>
+                                    <div className="quantity_add_cart_like_div">
+                                        <div className="counter_container">
+                                            <div className="minus_icon" onClick={() => minus_counter()}>-</div>
+                                            <div className="counter">{counter}</div>
+                                            <div className="plus_icon" onClick={() => add_counter()}>+</div>
+                                        </div>
+                                        <button className='add_to_cart_btn'>ADD TO CART</button>
 
+                                        <button className='like_btn'>
+                                            <img className='like_img' src={require('./assets/like.png')} alt="" />
+                                        </button>
+
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                     <div className="product_description_review_container">
