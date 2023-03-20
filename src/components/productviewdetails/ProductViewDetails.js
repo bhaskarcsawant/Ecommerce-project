@@ -6,7 +6,7 @@ import './productviewdetails.css'
 
 
 
-function ProductViewDetails({ product, loading }) {
+function ProductViewDetails({ product }) {
     const [counter, setCounter] = useState(1)
     const [display, setDisplay] = useState()
     const add_counter = () => {
