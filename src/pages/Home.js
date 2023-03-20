@@ -27,7 +27,7 @@ function Home() {
                     <HeroSection />
                     <BannerSection />
                     <ProductCarousel products={products} />
-                    <NewProducts />
+                    <NewProducts products={products} />
                     <BuildTrust />
                     <NewsLetter />
                     <Footer />
