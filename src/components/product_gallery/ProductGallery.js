@@ -7,7 +7,7 @@ import ProductTypeFilter from '../product_filter/product_type_filter/ProductType
 import ProductPriceFilter from '../product_filter/product_price_filter/ProductPriceFilter'
 import ProductSizeFilter from '../product_filter/product_size_filter/ProductSizeFilter'
 
-function ProductGallery() {
+function ProductGallery({ products }) {
     const [screenSize, setScreenSize] = useState(1300)
     const [activePage, setActivePage] = useState(1)
     const [totalPages, setTotalPages] = useState(20)
@@ -85,16 +85,7 @@ function ProductGallery() {
                         </div>
                     </div>
                     <div className="product_gallery_div">
-
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+                        {products ? products.map(product => <ProductCard data={product} key={product._id} />) : null}
                     </div>
                     <div className="product_gallery_pagination_container">
                         <div className="prev_bt" id='prev_bt' onClick={() => prevPage()}>Prev</div>
@@ -114,16 +105,7 @@ function ProductGallery() {
                         </div>
                     </div>
                     <div className="product_gallery_div">
-
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+                        {products ? products.map(product => <ProductCard data={product} key={product._id} />) : null}
                     </div>
                     <div className="product_gallery_pagination_container">
                         <div className="prev_bt" id='prev_bt' onClick={() => prevPage()}>Prev</div>
