@@ -4,7 +4,7 @@ import ProductViewDetails from '../components/productviewdetails/ProductViewDeta
 import SaleNote from '../components/salenote/SaleNote'
 import NewsLetter from '../components/newsletter/NewsLetter'
 import Footer from '../components/footer/Footer'
-import { getProductDetails } from '../actions/productsAction'
+import { getProductDetails } from '../components/actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../components/Loader/Loader'
 import { useParams } from 'react-router-dom'

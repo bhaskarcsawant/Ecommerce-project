@@ -6,8 +6,17 @@ import './productgallery.css'
 import ProductTypeFilter from '../product_filter/product_type_filter/ProductTypeFilter'
 import ProductPriceFilter from '../product_filter/product_price_filter/ProductPriceFilter'
 import ProductSizeFilter from '../product_filter/product_size_filter/ProductSizeFilter'
+import { getProducts } from '../actions/productsAction'
+import { useSelector, useDispatch } from 'react-redux'
+import Loader from '../Loader/Loader'
 
-function ProductGallery({ products }) {
+function ProductGallery() {
+    const dispatch = useDispatch()
+
+    const { loading, error, products, productCount } = useSelector((state) => state.products)
+    useEffect(() => {
+        dispatch(getProducts)
+    }, [dispatch])
     const [screenSize, setScreenSize] = useState(1300)
     const [activePage, setActivePage] = useState(1)
     const [totalPages, setTotalPages] = useState(20)
@@ -67,9 +76,9 @@ function ProductGallery({ products }) {
                             <div className="sort_filter_1">
                                 <h3 className='sort_filter_header'>Show Products:</h3>
                                 <select name="" id="" className='sort_dropdown'>
-                                    <option value="6" selected>6</option>
-                                    <option value="24">24</option>
-                                    <option value="60">60</option>
+                                    <option value="6" selected>9</option>
+                                    <option value="24">18</option>
+                                    <option value="60">27</option>
 
                                 </select>
                             </div>
@@ -84,9 +93,12 @@ function ProductGallery({ products }) {
                             </div>
                         </div>
                     </div>
-                    <div className="product_gallery_div">
-                        {products ? products.map(product => <ProductCard data={product} key={product._id} />) : null}
-                    </div>
+                    {loading ? (<Loader />) : (
+
+                        <div className="product_gallery_div">
+                            {products ? products.map(product => <ProductCard data={product} key={product._id} />) : null}
+                        </div>
+                    )}
                     <div className="product_gallery_pagination_container">
                         <div className="prev_bt" id='prev_bt' onClick={() => prevPage()}>Prev</div>
                         <div className="pagination_indicator_container">
