@@ -8,7 +8,7 @@ import ProductGallery from '../product_gallery/ProductGallery'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-function ProductFilters() {
+function ProductFilters({ products }) {
     const [screenSize, setScreenSize] = useState(1300)
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
@@ -26,7 +26,7 @@ function ProductFilters() {
                         <ProductPriceFilter />
                         <ProductSizeFilter />
                     </div>
-                    <ProductGallery />
+                    <ProductGallery products={products} />
                 </div>
             ) : (
                 <div className="product_filters_gallery_container">
