@@ -7,7 +7,7 @@ import NavBar from '../components/navbar/NavBar'
 import NewsLetter from '../components/newsletter/NewsLetter'
 import ProductCarousel from '../components/product_carousel/ProductCarousel'
 import NewProducts from '../components/todaysproducts/NewProducts'
-import { getProducts } from '../actions/productsAction'
+import { getProducts } from '../components/actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../components/Loader/Loader'
 
