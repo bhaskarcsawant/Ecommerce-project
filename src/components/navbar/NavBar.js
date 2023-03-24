@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './navbar.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 function NavBar({ theme, page }) {
-    console.log(theme)
+    const Navigate = useNavigate()
 
     useEffect(() => {
         if (page === "productView") {
             document.getElementById("search-img-dark").style.top = "-0.8rem"
 
         }
-    }, [])
+    }, [page])
     const handleHamburger = () => {
         var slide_nav = document.getElementById('slide_nav')
         var slide_nav_bg = document.getElementById('slide_nav_bg')
@@ -25,6 +26,18 @@ function NavBar({ theme, page }) {
         slide_nav.style.marginLeft = '200%'
         slide_nav_bg.style.display = 'none'
     }
+
+    const [keyword, setKeyword] = useState()
+    const searchHandler = (e) => {
+        e.preventDefault()
+        if (keyword.trim()) {
+            Navigate(`/products/${keyword}`)
+        }
+        else {
+            Navigate(`/products/`)
+        }
+    }
+
     return (
         <>
             <div className={styles.container_main} style={{
@@ -48,10 +61,10 @@ function NavBar({ theme, page }) {
                         <div className={styles.nav_item_container_1}>
 
                             <form>
-                                <input className={styles[(theme === 'dark' ? 'input_dark' : 'input')]} type="text" name="" placeholder="Search products" />
+                                <input className={styles[(theme === 'dark' ? 'input_dark' : 'input')]} type="text" name="" onChange={(e) => setKeyword(e.target.value)} placeholder="Search products" />
                                 <button type="submit">
-                                    <img className={styles.hero_search_img} src={require('./assets/search.png')} alt='' />
-                                    <img className={styles.hero_search_dark_img} id="search-img-dark" src={require('./assets/search_dark.png')} alt='' />
+                                    <img className={styles.hero_search_img} src={require('./assets/search.png')} onClick={(e) => searchHandler(e)} alt='' />
+                                    <img className={styles.hero_search_dark_img} id="search-img-dark" src={require('./assets/search_dark.png')} onClick={(e) => searchHandler(e)} alt='' />
                                 </button>
                             </form>
                             <Link to="/cart">

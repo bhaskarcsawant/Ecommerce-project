@@ -25,6 +25,7 @@ function App() {
           <Route path="product/:id" element={<Productview />} />
           <Route path="cart" element={<ShoppingCart />} />
           <Route path="products" element={<ProductFilterPage />} />
+          <Route path="products/:keyword" element={<ProductFilterPage />} />
           <Route path="admin" element={<Admin />} />
           <Route path="admin/dashboard" element={<Dashboard />} />
           <Route path="admin/dashboard/addproduct/" element={<AddProduct />} />
@@ -32,7 +33,6 @@ function App() {
           <Route path="admin/dashboard/categorylist/" element={<CategoryList />} />
           <Route path="admin/dashboard/orderlist/" element={<OrderList />} />
           <Route path="admin/dashboard/transactionlist/" element={<TransactionList />} />
-          <Route path="admin/dashboard/settings/" element={<Settings />} />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
 
         </Routes>

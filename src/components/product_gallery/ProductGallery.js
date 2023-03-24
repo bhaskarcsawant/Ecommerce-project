@@ -9,17 +9,26 @@ import ProductSizeFilter from '../product_filter/product_size_filter/ProductSize
 import { getProducts } from '../actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../Loader/Loader'
+import { useParams } from 'react-router-dom'
 
 function ProductGallery() {
     const dispatch = useDispatch()
-
-    const { loading, error, products, productCount } = useSelector((state) => state.products)
-    useEffect(() => {
-        dispatch(getProducts)
-    }, [dispatch])
+    const { loading, products, productCount } = useSelector((state) => state.products)
+    const { keyword } = useParams()
     const [screenSize, setScreenSize] = useState(1300)
     const [activePage, setActivePage] = useState(1)
-    const [totalPages, setTotalPages] = useState(20)
+    const [productPerPage, setProductPerPage] = useState(9)
+    const [totalPages, setTotalPages] = useState(Math.ceil(productCount / productPerPage))
+
+    useEffect(() => {
+        dispatch(getProducts(keyword, activePage))
+    }, [dispatch, keyword, activePage])
+    useEffect(() => {
+        setTotalPages(Math.ceil(productCount / productPerPage))
+    }, [productCount, productPerPage])
+
+
+    // console.log(productPerPage)
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
     })
@@ -45,11 +54,14 @@ function ProductGallery() {
         if (activePage > 1) {
             setActivePage(activePage - 1)
         }
+
     }
     const nextPage = () => {
         if (activePage < totalPages) {
             setActivePage(activePage + 1)
         }
+
+
     }
     const openFilterSection = () => {
         var slide_filter = document.getElementById('slide_filter')
@@ -71,14 +83,14 @@ function ProductGallery() {
             {screenSize > 1280 ? (
                 <div className="product_gallery_filter_div">
                     <div className="gallery_filter_container">
-                        <h3 className='gallery_header'>Men's Top <span className='count_bracket'>(150)</span></h3>
+                        <h3 className='gallery_header'>Men's Top <span className='count_bracket'>({productCount})</span></h3>
                         <div className="sort_filter_container">
                             <div className="sort_filter_1">
                                 <h3 className='sort_filter_header'>Show Products:</h3>
-                                <select name="" id="" className='sort_dropdown'>
-                                    <option value="6" selected>9</option>
-                                    <option value="24">18</option>
-                                    <option value="60">27</option>
+                                <select name="" id="" className='sort_dropdown' onChange={(e) => setProductPerPage(e.target.value)} value={productPerPage}>
+                                    <option value="9" >9</option>
+                                    <option value="18">18</option>
+                                    <option value="27">27</option>
 
                                 </select>
                             </div>
