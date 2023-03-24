@@ -9,11 +9,10 @@ import ProductSizeFilter from '../product_filter/product_size_filter/ProductSize
 import { getProducts } from '../actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../Loader/Loader'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 function ProductGallery() {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const { loading, products, productCount } = useSelector((state) => state.products)
     const { keyword } = useParams()
     const [screenSize, setScreenSize] = useState(1300)
@@ -24,6 +23,9 @@ function ProductGallery() {
     useEffect(() => {
         dispatch(getProducts(keyword, activePage))
     }, [dispatch, keyword, activePage])
+    useEffect(() => {
+        setTotalPages(Math.ceil(productCount / productPerPage))
+    }, [productCount, productPerPage])
 
 
     // console.log(productPerPage)
