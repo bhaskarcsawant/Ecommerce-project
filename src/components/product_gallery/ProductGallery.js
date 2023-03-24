@@ -9,23 +9,24 @@ import ProductSizeFilter from '../product_filter/product_size_filter/ProductSize
 import { getProducts } from '../actions/productsAction'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../Loader/Loader'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function ProductGallery() {
     const dispatch = useDispatch()
-    const { keyword } = useParams()
-
+    const navigate = useNavigate()
     const { loading, products, productCount } = useSelector((state) => state.products)
-    useEffect(() => {
-        dispatch(getProducts(keyword))
-    }, [dispatch, keyword])
-
-
+    const { keyword } = useParams()
     const [screenSize, setScreenSize] = useState(1300)
     const [activePage, setActivePage] = useState(1)
-    const [totalPages, setTotalPages] = useState(20)
     const [productPerPage, setProductPerPage] = useState(9)
-    console.log(productPerPage)
+    const [totalPages, setTotalPages] = useState(Math.ceil(productCount / productPerPage))
+
+    useEffect(() => {
+        dispatch(getProducts(keyword, activePage))
+    }, [dispatch, keyword, activePage])
+
+
+    // console.log(productPerPage)
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
     })
@@ -51,11 +52,14 @@ function ProductGallery() {
         if (activePage > 1) {
             setActivePage(activePage - 1)
         }
+
     }
     const nextPage = () => {
         if (activePage < totalPages) {
             setActivePage(activePage + 1)
         }
+
+
     }
     const openFilterSection = () => {
         var slide_filter = document.getElementById('slide_filter')
