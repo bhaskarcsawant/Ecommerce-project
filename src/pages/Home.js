@@ -15,9 +15,9 @@ import Loader from '../components/Loader/Loader'
 function Home() {
     const dispatch = useDispatch()
 
-    const { loading, error, products, productCount } = useSelector((state) => state.products)
+    const { loading, products } = useSelector((state) => state.products)
     useEffect(() => {
-        dispatch(getProducts)
+        dispatch(getProducts())
     }, [dispatch])
     return (
         <>
