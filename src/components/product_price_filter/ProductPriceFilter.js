@@ -14,7 +14,7 @@ function ProductFilters() {
     let keyword = ''
     useEffect(() => {
         if (checked) {
-            // dispatch(getProducts(keyword, 1, 'T-Shirt', checked))
+            dispatch(getProducts(keyword, 1, 'T-Shirt', checked))
         } else if (checked1) {
             dispatch(getProducts(keyword, 1, 'T-Shirt', checked1))
         }
