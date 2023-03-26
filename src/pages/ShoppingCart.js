@@ -9,7 +9,7 @@ import ShoppingCartContainer from '../components/shoppingcartcontainer/ShoppingC
 function ShoppingCart() {
     return (
         <>
-            <NavBar />
+            {/* <NavBar /> */}
             <ShoppingCartContainer />
             <Footer />
         </>

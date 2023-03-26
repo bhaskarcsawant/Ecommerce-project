@@ -83,7 +83,7 @@ function ProductGallery() {
             {screenSize > 1280 ? (
                 <div className="product_gallery_filter_div">
                     <div className="gallery_filter_container">
-                        <h3 className='gallery_header'>Men's Top <span className='count_bracket'>({productCount})</span></h3>
+                        <h3 className='gallery_header'>Men's Top <span className='count_bracket'>({products ? products.length : 0})</span></h3>
                         <div className="sort_filter_container">
                             <div className="sort_filter_1">
                                 <h3 className='sort_filter_header'>Show Products:</h3>

@@ -12,6 +12,7 @@ import CategoryList from "./pages/Admin/CategoryList";
 import OrderList from "./pages/Admin/OrderList";
 import TransactionList from "./pages/Admin/TransactionList";
 import Settings from "./pages/Admin/Settings";
+import Login from "./pages/Login";
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="product/:id" element={<Productview />} />
           <Route path="cart" element={<ShoppingCart />} />
+          <Route path="login" element={<Login />} />
           <Route path="products" element={<ProductFilterPage />} />
           <Route path="products/:keyword" element={<ProductFilterPage />} />
           <Route path="admin" element={<Admin />} />

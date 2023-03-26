@@ -73,7 +73,9 @@ function NavBar({ theme, page }) {
                                 <img className={styles.hero_cart_dark_img} style={{ display: theme === 'dark' ? 'block' : '' }} src={require('./assets/cart_dark.png')} alt='' />
                             </Link>
                             <div>
-                                <img className={styles.hero_user_img} style={{ display: theme === 'dark' ? 'none' : '' }} src={require('./assets/avatar.png')} alt='' />
+                                <Link to="/login">
+                                    <img className={styles.hero_user_img} style={{ display: theme === 'dark' ? 'none' : '' }} src={require('./assets/avatar.png')} alt='' />
+                                </Link>
                                 <img onClick={() => handleHamburger()} style={{ display: theme === 'dark' ? 'block' : '' }} className={styles.hero_hamburger_img} src={require('./assets/hamburger.png')} alt='' />
                             </div>
 
