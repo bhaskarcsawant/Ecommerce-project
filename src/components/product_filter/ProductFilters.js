@@ -24,7 +24,7 @@ function ProductFilters({ products }) {
                     <div className="product_filters_div">
                         <ProductTypeFilter />
                         <ProductPriceFilter />
-                        <ProductSizeFilter />
+                        {/* <ProductSizeFilter /> */}
                     </div>
                     <ProductGallery products={products} />
                 </div>
