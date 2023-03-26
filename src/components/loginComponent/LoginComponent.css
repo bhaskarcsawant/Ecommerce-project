@@ -1,0 +1,40 @@
+.LoginComponentContainer {
+    max-width: 40rem;
+    padding: 3rem;
+    border: 0.5px solid var(--black);
+    margin: 10% auto;
+    display: grid;
+    place-items: center;
+    gap: 5rem;
+}
+
+.LoginHeader {
+    font-size: var(--font-29);
+}
+
+.loginForm {
+    display: flex;
+}
+
+.loginInput {
+    border: 0.5px solid var(--black);
+}
+
+.loginlinks {
+    text-align: center;
+    color: var(--black);
+    font-size: var(--font-13);
+}
+
+.loginBt {
+    all: unset;
+    width: auto;
+    padding: 1rem;
+    background-color: var(--yellow);
+    border-radius: 2rem;
+    font-size: var(--font-20);
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    cursor: pointer;
+}
