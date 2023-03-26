@@ -148,15 +148,17 @@ function ProductViewDetails({ product }) {
                                     <h3 className='size_table_header'>See size table</h3>
                                 </div>
                                 <div className="size_selector_container">
-                                    <div className="size_btn_div">
-                                        <button className='product_size_btn'>S</button>
-                                    </div>
-                                    <div className="size_btn_div">
+                                    {product.size.map((size, index) => (
+                                        <div className="size_btn_div" key={size._id}>
+                                            <button className='product_size_btn'>{size.stockType}</button>
+                                        </div>
+                                    ))}
+                                    {/* <div className="size_btn_div">
                                         <button className='product_size_btn'>M</button>
                                     </div>
                                     <div className="size_btn_div">
                                         <button className='product_size_btn'>L</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             {product.stock < 1 ? (
