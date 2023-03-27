@@ -38,10 +38,3 @@
     text-align: center;
     cursor: pointer;
 }
-
-.error {
-    padding: 1rem;
-    background-color: rgb(233, 139, 139);
-    border-radius: 5px;
-    font-size: var(--font-13);
-}
