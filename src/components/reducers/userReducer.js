@@ -6,14 +6,14 @@ export const userReducer = (state = { user: {} }, action) => {
         case LOGIN_REQUEST:
             return {
                 loading: true,
-                isAuthenticated: false
+                isAuthenticated: false,
             }
         case LOGIN_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 isAuthenticated: true,
-                user: action.payload
+                user: action.payload,
             }
         case LOGIN_FAIL:
             return {
@@ -26,7 +26,7 @@ export const userReducer = (state = { user: {} }, action) => {
         case CLEAR_ERRORS:
             return {
                 ...state,
-                error: null
+                error: null,
             }
         default:
             return state;

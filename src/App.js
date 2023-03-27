@@ -14,6 +14,7 @@ import TransactionList from "./pages/Admin/TransactionList";
 import Settings from "./pages/Admin/Settings";
 import Login from "./pages/Login";
 import RegisterComponent from "./components/registerComponent/RegisterComponent";
+import Account from "./components/account/Account";
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="product/:id" element={<Productview />} />
           <Route path="cart" element={<ShoppingCart />} />
           <Route path="login" element={<Login />} />
+          <Route path="account" element={<Account />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route path="products" element={<ProductFilterPage />} />
           <Route path="products/:keyword" element={<ProductFilterPage />} />
