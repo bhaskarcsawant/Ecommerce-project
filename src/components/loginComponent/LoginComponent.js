@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './LoginComponent.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearErrors, login } from '../actions/userAction'
@@ -8,7 +8,7 @@ import Loader from '../Loader/Loader'
 function LoginComponent() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { loading, error, user, isAuthenticated } = useSelector(state => state.user)
+    const { loading, error, isAuthenticated } = useSelector((state) => state.user)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = (e) => {
