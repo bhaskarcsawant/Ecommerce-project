@@ -1,4 +1,15 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_ERRORS, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL } from "../constants/userConstants"
+import {
+    LOGIN_REQUEST,
+    REGISTER_REQUEST,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOAD_USER_REQUEST,
+    LOAD_USER_SUCCESS,
+    LOAD_USER_FAIL,
+    CLEAR_ERRORS
+} from "../constants/userConstants"
 import axios from "axios";
 
 
@@ -23,6 +34,18 @@ export const register = (firstname, lastname, mobile, email, password) => async 
         dispatch({ type: REGISTER_SUCCESS, payload: data })
     } catch (error) {
         dispatch({ type: REGISTER_FAIL, payload: error.response.data.message })
+    }
+}
+
+export const loadUser = () => async (dispatch) => {
+    try {
+        dispatch({ type: LOAD_USER_REQUEST });
+
+        const { data } = await axios.get(`/api/v1/me`)
+        // console.log(data)
+        dispatch({ type: LOAD_USER_SUCCESS, payload: data })
+    } catch (error) {
+        dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message })
     }
 }
 

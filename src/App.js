@@ -15,10 +15,15 @@ import Settings from "./pages/Admin/Settings";
 import Login from "./pages/Login";
 import RegisterComponent from "./components/registerComponent/RegisterComponent";
 import Account from "./components/account/Account";
-
+import { useEffect } from "react";
+import store from './store'
+import { loadUser } from "./components/actions/userAction";
 
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser())
+  })
   return (
     <>
       <Router>
