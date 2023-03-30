@@ -9,7 +9,7 @@ import './Account.css'
 function Account() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { loading, isAuthenticated } = useSelector((state) => state.user)
+    const { loading, isAuthenticated, user } = useSelector((state) => state.user)
 
     useEffect(() => {
         if (!isAuthenticated) {
@@ -24,9 +24,22 @@ function Account() {
         <>
             {loading ? (<Loader />) : (
                 <>
-                    <Link to="/admin/dashboard"><div className="AdminDashboardBt">Admin Dashboard</div></Link>
+                    {user.role === 'Admin' ? (
 
+                        <Link to="/admin/dashboard"><div className="AdminDashboardBt">Admin Dashboard</div></Link>
+                    ) : null}
+                    <h1 className='MyProfileHeader'>My Profile</h1>
                     <div className="logoutBt" onClick={() => handleLogout()}>Log Out</div>
+                    <div className="profileactionsContainer">
+                        <div className="userDataContainer">
+                            <h2 className='userName'>Name : {user.firstname} {user.lastname}.</h2>
+                            <h2 className='userEmailId'>Email : {user.email}</h2>
+                        </div>
+                        <div className="userActionsContainer">
+                            <Link to="/admin/dashboard"><div className="UserActionsBt">My Orders</div></Link>
+                            <Link to="/admin/dashboard"><div className="UserActionsBt">Change Password</div></Link>
+                        </div>
+                    </div>
                 </>
             )}
         </>
