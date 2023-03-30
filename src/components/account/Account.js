@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { logOut } from '../actions/userAction'
 import Loader from '../Loader/Loader'
 import NavBar from '../navbar/NavBar'
@@ -23,8 +23,11 @@ function Account() {
     return (
         <>
             {loading ? (<Loader />) : (
+                <>
+                    <Link to="/admin/dashboard"><div className="AdminDashboardBt">Admin Dashboard</div></Link>
 
-                <div className="logoutBt" onClick={() => handleLogout()}>Log Out</div>
+                    <div className="logoutBt" onClick={() => handleLogout()}>Log Out</div>
+                </>
             )}
         </>
     )

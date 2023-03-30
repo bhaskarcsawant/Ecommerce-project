@@ -10,3 +10,16 @@
     color: white;
     cursor: pointer;
 }
+
+.AdminDashboardBt {
+    padding: 1rem;
+    background-color: var(--yellow);
+    border-radius: 1rem;
+    position: absolute;
+    left: 5rem;
+    top: 1.6rem;
+    font-size: var(--font-16);
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
