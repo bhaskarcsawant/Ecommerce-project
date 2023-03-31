@@ -37,7 +37,7 @@ function Account() {
                         </div>
                         <div className="userActionsContainer">
                             <Link to="/admin/dashboard"><div className="UserActionsBt">My Orders</div></Link>
-                            <Link to="/admin/dashboard"><div className="UserActionsBt">Change Password</div></Link>
+                            <Link to="/account/change-password"><div className="UserActionsBt">Change Password</div></Link>
                         </div>
                     </div>
                 </>

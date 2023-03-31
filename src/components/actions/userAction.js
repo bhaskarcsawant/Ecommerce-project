@@ -1,17 +1,19 @@
 import {
-    LOGIN_REQUEST,
-    REGISTER_REQUEST,
-    REGISTER_SUCCESS,
-    REGISTER_FAIL,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOAD_USER_REQUEST,
-    LOAD_USER_SUCCESS,
-    LOAD_USER_FAIL,
-    LOGOUT_USER_SUCCESS,
-    LOGOUT_USER_FAIL,
-    CLEAR_ERRORS
-} from "../constants/userConstants"
+  LOGIN_REQUEST,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOAD_USER_REQUEST,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_FAIL,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_FAIL,
+  UPDATE_PASSWORD_SUCCESS,
+  UPDATE_PASSWORD_FAIL,
+  CLEAR_ERRORS,
+} from "../constants/userConstants";
 import axios from "axios";
 
 
@@ -36,6 +38,24 @@ export const register = (firstname, lastname, mobile, email, password) => async 
         dispatch({ type: REGISTER_SUCCESS, payload: data })
     } catch (error) {
         dispatch({ type: REGISTER_FAIL, payload: error.response.data.message })
+    }
+}
+
+export const updatePassword = (oldPassword,newPassword,confirmPassword) => async (dispatch) => {
+    try {
+        const config = { headers: { "Content-Type": "application/json" } };
+
+        const { data } = await axios.put(
+          `/api/v1/password/update/`,
+          { oldPassword, newPassword, confirmPassword },
+          config
+        );
+        dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({
+          type: UPDATE_PASSWORD_FAIL,
+          payload: error.response.data.message,
+        });
     }
 }
 

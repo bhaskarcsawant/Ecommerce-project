@@ -45,3 +45,10 @@
     border-radius: 5px;
     font-size: var(--font-13);
 }
+
+.success {
+    padding: 1rem;
+    background-color: rgb(150, 233, 139);
+    border-radius: 5px;
+    font-size: var(--font-13);
+}
