@@ -12,6 +12,9 @@ import {
     LOGOUT_USER_FAIL,
     UPDATE_PASSWORD_SUCCESS,
     UPDATE_PASSWORD_FAIL,
+    FORGOT_PASSWORD_REQUEST,
+    FORGOT_PASSWORD_SUCCESS,
+    FORGOT_PASSWORD_FAIL,
     CLEAR_ERRORS
 } from "../constants/userConstants"
 
@@ -39,7 +42,7 @@ export const userReducer = (state = { user: {} }, action) => {
           ...state,
           loading: false,
           isAuthenticated: true,
-            user: action.payload.user,
+          user: action.payload.user,
           message: "success",
         };
       case LOGOUT_USER_SUCCESS:
@@ -70,6 +73,25 @@ export const userReducer = (state = { user: {} }, action) => {
           ...state,
           loading: false,
           error: action.payload,
+        };
+
+      case FORGOT_PASSWORD_REQUEST:
+        return {
+          ...state,
+          loading: true,
+          error: null,
+        };
+      case FORGOT_PASSWORD_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          message: action.payload,
+        };
+      case FORGOT_PASSWORD_FAIL:
+        return {
+          ...state,
+          loading: false,
+          message: action.payload,
         };
       case CLEAR_ERRORS:
         return {

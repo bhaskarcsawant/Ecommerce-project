@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import store from './store'
 import { loadUser } from "./components/actions/userAction";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
+import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="account" element={<Account />} />
           <Route path="account/change-password" element={<ChangePassword />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route path="products" element={<ProductFilterPage />} />
           <Route path="products/:keyword" element={<ProductFilterPage />} />
