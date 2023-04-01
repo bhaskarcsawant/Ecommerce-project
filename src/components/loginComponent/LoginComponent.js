@@ -31,9 +31,9 @@ function LoginComponent() {
                     <form className='loginForm' action="">
                         <input className='loginInput' type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Id' />
                         <input className='loginInput' type="password" onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' />
-                        <Link to="/password/forget">
+                        <a href="/forget-password">
                             <h3 className='loginlinks'>Forgot password ?</h3>
-                        </Link>
+                        </a>
                         <Link to="/register">
                             <h3 className='loginlinks'>New user? Register</h3>
                         </Link>
