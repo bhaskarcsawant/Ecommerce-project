@@ -16,6 +16,9 @@ import {
   FORGOT_PASSWORD_REQUEST,
   FORGOT_PASSWORD_SUCCESS,
   FORGOT_PASSWORD_FAIL,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -61,6 +64,25 @@ export const updatePassword = (oldPassword,newPassword,confirmPassword) => async
         });
     }
 }
+
+export const resetPassword = (token,password, confirmPassword) => async (dispatch) => {
+    try {
+       dispatch({ type: RESET_PASSWORD_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.put(
+      `/api/v1/password/reset/${token}`,
+      { password, confirmPassword },
+      config
+    );
+    dispatch({ type: RESET_PASSWORD_SUCCESS, payload: "Password Updated successFully." });
+  } catch (error) {
+    dispatch({
+      type: RESET_PASSWORD_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 export const loadUser = () => async (dispatch) => {
     try {
