@@ -15,7 +15,7 @@ function Account() {
         if (!isAuthenticated) {
             navigate('/login')
         }
-    }, [navigate, isAuthenticated])
+    }, [navigate, isAuthenticated,])
 
     const handleLogout = () => {
         dispatch(logOut())
@@ -29,7 +29,7 @@ function Account() {
                         <Link to="/admin/dashboard"><div className="AdminDashboardBt">Admin Dashboard</div></Link>
                     ) : null}
                     <h1 className='MyProfileHeader'>My Profile</h1>
-                    <div className="logoutBt" onClick={() => handleLogout()}>Log Out</div>
+                    <a href='/account'><div className="logoutBt" onClick={() => handleLogout()}>Log Out</div></a>
                     <div className="profileactionsContainer">
                         <div className="userDataContainer">
                             <h2 className='userName'>Name : {user.firstname} {user.lastname}.</h2>
