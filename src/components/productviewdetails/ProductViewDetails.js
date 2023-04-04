@@ -3,12 +3,17 @@ import { useState } from 'react'
 import Loader from '../Loader/Loader'
 import ProductPath from '../productpath/ProductPath'
 import './productviewdetails.css'
+import { useDispatch } from 'react-redux'
+import { addItemToCart } from '../actions/cartActions'
+import { useParams } from 'react-router-dom'
 
 
 
 function ProductViewDetails({ product }) {
+    const dispatch = useDispatch()
     const [counter, setCounter] = useState(1)
     const [display, setDisplay] = useState()
+    const [alertMsg, setAlertMsg] = useState();
     const add_counter = () => {
         if (product.stock-1 < counter) return;
         setCounter(counter + 1)
@@ -53,7 +58,12 @@ function ProductViewDetails({ product }) {
             setMainImage(product.images[0])
         }
     }, [product])
-
+    const {id} = useParams()
+    const handleAddToCart = () => {
+        dispatch(addItemToCart(id, counter));
+        // setAlertMsg("Product added to cart");
+        // const myTime = setTimeout(() => setAlertMsg(),4000)
+    }
 
     return (
         <>
@@ -175,7 +185,7 @@ function ProductViewDetails({ product }) {
                                             <div className="counter">{counter}</div>
                                             <div className="plus_icon" onClick={() => add_counter()}>+</div>
                                         </div>
-                                        <button className='add_to_cart_btn'>ADD TO CART</button>
+                                        <button className='add_to_cart_btn' onClick={handleAddToCart}>ADD TO CART</button>
 
                                         <button className='like_btn'>
                                             <img className='like_img' src={require('./assets/like.png')} alt="" />
@@ -213,6 +223,9 @@ function ProductViewDetails({ product }) {
                             </div>
                         </div>
                     </div>
+                    {alertMsg ? (
+                        <div className="alertMsg">{alertMsg}</div>
+                    ) : null}
                 </div>
             )}
         </>
