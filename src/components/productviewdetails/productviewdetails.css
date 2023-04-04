@@ -377,6 +377,17 @@
     font-weight: 400;
 }
 
+.alertMsg {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--light-green);
+    border-radius: 2rem;
+    font-size: var(--font-13);
+    font-weight: 500;
+}
+
 @media (min-width:0em) and (max-width:766px) {
     .productview_details_main_container {
         width: 100%;
