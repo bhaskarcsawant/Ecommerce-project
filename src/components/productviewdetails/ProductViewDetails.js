@@ -10,9 +10,11 @@ function ProductViewDetails({ product }) {
     const [counter, setCounter] = useState(1)
     const [display, setDisplay] = useState()
     const add_counter = () => {
+        if (product.stock-1 < counter) return;
         setCounter(counter + 1)
     }
     const minus_counter = () => {
+        if(counter < 2)return
         setCounter(counter - 1)
     }
     const set_desc_display = () => {
