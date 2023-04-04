@@ -61,8 +61,8 @@ function ProductViewDetails({ product }) {
     const {id} = useParams()
     const handleAddToCart = () => {
         dispatch(addItemToCart(id, counter));
-        // setAlertMsg("Product added to cart");
-        // const myTime = setTimeout(() => setAlertMsg(),4000)
+        setAlertMsg("Product added to cart");
+        const myTime = setTimeout(() => setAlertMsg(),4000)
     }
 
     return (
