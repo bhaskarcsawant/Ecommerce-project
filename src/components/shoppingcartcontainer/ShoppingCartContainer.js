@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux'
 
 function ShoppingCartContainer() {
     const [screenSize, setScreenSize] = useState(1300)
-    const {cartItems} = useSelector(state => state.cart)
+    const { cartItems } = useSelector(state => state.cart)
+    const [totalCost , setTotalCost] = useState(0)
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
     })
@@ -28,6 +29,12 @@ function ShoppingCartContainer() {
         document.getElementById('cartListContainer2').style.display = 'none'
         document.getElementById('cartListContainer').style.display = 'block'
     }
+    useEffect(() => {
+      let sum = 0;
+      cartItems.forEach((i) => (sum += i.price));
+      setTotalCost(sum);
+    }, [cartItems]);
+   
     return (
         <>
             {screenSize > 800 ? (
@@ -49,14 +56,14 @@ function ShoppingCartContainer() {
                         <table className='cart_table'>
                             <tr className='cartTableHeaders'>
                                 <th style={{ textAlign: "left" }}>Product</th>
-                                <th style={{ textAlign: "center" }} >Color</th>
+                                {/* <th style={{ textAlign: "center" }} >Color</th>
                                 <th style={{ textAlign: "center" }}>Size</th>
-                                <th style={{ textAlign: "center" }}>Ammount</th>
+                                <th style={{ textAlign: "center" }}>Ammount</th> */}
                                 <th style={{ textAlign: "center" }}>Price</th>
                                 <th></th>
                             </tr>
                             {cartItems ? cartItems.map(product=> 
-                                <tr>
+                                <tr key={product.name}>
                                     <td className='cart_table_td'>
                                         <div id="product_icon">
                                             <img className='' id='product_icon_img' src={product.image} alt='' />
@@ -66,19 +73,19 @@ function ShoppingCartContainer() {
                                             <h3 className="product_cartid">#676762</h3>
                                         </div>
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <h3 className="product_cart_color">White</h3>
                                     </td>
                                     <td>
                                         <h3 className="product_cart_size">XL</h3>
-                                    </td>
-                                    <td className='cart_table_td_counter'>
+                                    </td> */}
+                                    {/* <td className='cart_table_td_counter'>
                                         <div className="counter_container">
                                             <div className="minus_icon" onClick={() => minus_counter()}>-</div>
                                             <div className="counter">{counter}</div>
                                             <div className="plus_icon" onClick={() => add_counter()}>+</div>
                                         </div>
-                                    </td>
+                                    </td> */}
                                     <td>
                                         <h3 className="product_cart_price">₹{product.price}</h3>
                                     </td>
@@ -103,7 +110,7 @@ function ShoppingCartContainer() {
                                 </button>
                             </form>
                             <div className="cart_checkout_container">
-                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹199</span></h3>
+                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>{totalCost }</span></h3>
                                 <button onClick={showPaymentComponent} className='add_to_cart_btn'>CHECKOUT</button>
                             </div>
                         </div>
@@ -152,22 +159,16 @@ function ShoppingCartContainer() {
                             <div className="checkoutMiniCart">
                                 <h2 className='shippingFormHeader'>Your Cart</h2>
                                 <div className="miniCartContainer">
-                                    <div className="productMiniCartRow">
-                                        <img className='' id='product_icon_img' src={require('./assets/mask.png')} alt='' />
-                                        <div className="product_cart_name_container">
-                                            <h3 className="product_cart_name">T-Shirt Summer Vibes</h3>
-                                            <h3 className="product_cartid">#676762</h3>
+                                    {cartItems ? cartItems.map(product =>
+                                        <div key={product.name} className="productMiniCartRow">
+                                            <img className='' id='product_icon_img' src={product.image} alt='' />
+                                            <div className="product_cart_name_container">
+                                                <h3 className="product_cart_name">{product.name}</h3>
+                                                <h3 className="product_cartid">#676762</h3>
+                                            </div>
+                                            <h3 className="product_cart_price">₹{product.price}</h3>
                                         </div>
-                                        <h3 className="product_cart_price">₹199</h3>
-                                    </div>
-                                    <div className="productMiniCartRow">
-                                        <img className='' id='product_icon_img' src={require('./assets/mask.png')} alt='' />
-                                        <div className="product_cart_name_container">
-                                            <h3 className="product_cart_name">T-Shirt Summer Vibes</h3>
-                                            <h3 className="product_cartid">#676762</h3>
-                                        </div>
-                                        <h3 className="product_cart_price">₹199</h3>
-                                    </div>
+                                    ) : null}
                                 </div>
                             </div>
                         </div>
@@ -177,7 +178,7 @@ function ShoppingCartContainer() {
                                 <h3 className="cart_continue_header">Back</h3>
                             </div>
                             <div className="cart_checkout_container">
-                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹199</span></h3>
+                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹{ totalCost }</span></h3>
                                 <button className='add_to_cart_btn'>PLACE ORDER</button>
                             </div>
                         </div>
@@ -198,8 +199,10 @@ function ShoppingCartContainer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="cart_products_container">
-                            <CartProductComponent />
+                            <div className="cart_products_container">
+                                {cartItems ? cartItems.map(product =>
+                                    <CartProductComponent product={product} key={product.name}/>
+                                ) : null}
                         </div>
                         <div className="shoppingCartNavBottom">
                             <div className="mobContinueAndTotalPriceContainer">
@@ -207,7 +210,7 @@ function ShoppingCartContainer() {
                                     <img className="goBackBt_icon" src={require('./assets/arrow1.png')} alt='' />
                                     <h3 className="cart_continue_header">Continue Shopping</h3>
                                 </div>
-                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹199</span></h3>
+                                    <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹{ totalCost}</span></h3>
                             </div>
                             <div className="mobPromoAndCheckoutContatiner">
                                 <form className='cart_promo_form'>

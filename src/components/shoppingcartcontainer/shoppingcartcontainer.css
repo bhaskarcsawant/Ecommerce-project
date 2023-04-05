@@ -275,6 +275,11 @@
 }
 
 @media (min-width:0em) and (max-width:480px) {
+    #product_icon_img {
+        position: relative;
+        left: unset;
+        margin-top: unset;
+    }
     .ShoppingCartContainer {
         max-width: 350px;
         margin: 3rem auto;
