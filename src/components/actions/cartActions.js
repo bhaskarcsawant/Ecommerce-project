@@ -5,12 +5,12 @@ export const addItemToCart = (id,quantity) =>async (dispatch,getState) => {
 
       let link = `/api/v1/product/${id}`;
 
-      const { data } = await axios.get(link);
-    console.log(data)
+  const { data } = await axios.get(link);
+  console.log(data);
       dispatch({
         type: ADD_TO_CART,
           payload: {
-              product: data.id,
+              product: data._id,
               name: data.name,
               price: data.price,
               image: data.images[0].url,
