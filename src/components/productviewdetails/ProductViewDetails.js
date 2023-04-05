@@ -65,6 +65,10 @@ function ProductViewDetails({ product }) {
         const myTime = setTimeout(() => setAlertMsg(),4000)
     }
 
+    const selectSize = () => {
+        
+    }
+
     return (
         <>
             {!product ? (<Loader />) : (
@@ -137,7 +141,7 @@ function ProductViewDetails({ product }) {
                                 </div>
                                 <h3 className='product_view_brand'>{product.brand}</h3>
                             </div>
-                            <div className="product_view_color_selector_container">
+                            {/* <div className="product_view_color_selector_container">
                                 <h3 className='color_header'>Color:</h3>
                                 <div className="color_selector_btn_container">
                                     <div className="color_btn_div">
@@ -153,25 +157,25 @@ function ProductViewDetails({ product }) {
                                         <button className='product_color_btn'></button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="product_view_size_container">
-                                <div className="size_header_div">
+                                {/* <div className="size_header_div">
                                     <h3 className='size_header'>Size:</h3>
                                     <h3 className='size_table_header'>See size table</h3>
                                 </div>
-                                <div className="size_selector_container">
-                                    {product.size.map((size, index) => (
+                                <div className="size_selector_container"> */}
+                                    {/* {product.size.map((size, index) => (
                                         <div className="size_btn_div" key={size._id}>
-                                            <button className='product_size_btn'>{size.stockType}</button>
+                                            <button className='product_size_btn' onClick={selectSize}>{size.stockType}</button>
                                         </div>
-                                    ))}
+                                    ))} */}
                                     {/* <div className="size_btn_div">
                                         <button className='product_size_btn'>M</button>
                                     </div>
                                     <div className="size_btn_div">
                                         <button className='product_size_btn'>L</button>
                                     </div> */}
-                                </div>
+                                {/* </div> */}
                             </div>
                             {product.stock < 1 ? (
                                 // <button className='add_to_cart_btn'>o</button>
@@ -187,9 +191,9 @@ function ProductViewDetails({ product }) {
                                         </div>
                                         <button className='add_to_cart_btn' onClick={handleAddToCart}>ADD TO CART</button>
 
-                                        <button className='like_btn'>
+                                        {/* <button className='like_btn'>
                                             <img className='like_img' src={require('./assets/like.png')} alt="" />
-                                        </button>
+                                        </button> */}
 
                                     </div>
                                 </div>
