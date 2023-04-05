@@ -65,7 +65,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    top: -6vh;
+    top: -1vh;
 }
 
 .cart_table th {
@@ -79,6 +79,10 @@
 .cart_table td {
     /* background-color: aqua; */
     text-align: center;
+}
+
+.cartTableHeaders {
+    justify-content: space-around;
 }
 
 
@@ -96,6 +100,10 @@
     mask-size: 70%;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
+    width: 10rem;
+    position: absolute;
+    left: -8rem;
+    margin-top: -4.8rem;
 }
 
 .product_cart_name_container {
