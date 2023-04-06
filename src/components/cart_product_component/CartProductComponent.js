@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './cartproductcomponent.css'
 
-function CartProductComponent({product}) {
+function CartProductComponent({product,removeFromCartFunc}) {
     const [counter, setCounter] = useState(1)
     const add_counter = () => {
         setCounter(counter + 1)
@@ -36,7 +36,7 @@ function CartProductComponent({product}) {
                             <h3 className="product_cart_price_mob">₹{ product.price}</h3>
                         </div>
                     </div>
-                    <img className="product_cart_delete_icon" src={require('./assets/close.png')} alt='' />
+                    <img className="product_cart_delete_icon" onClick={() => removeFromCartFunc(product.product)} src={require('./assets/close.png')} alt='' />
 
                     </div>
             ):null}
