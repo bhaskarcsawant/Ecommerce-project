@@ -2,9 +2,14 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import CartProductComponent from '../cart_product_component/CartProductComponent'
 import "./shoppingcartcontainer.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromCart } from '../actions/cartActions'
 
 function ShoppingCartContainer() {
+    const dispatch = useDispatch()
+    const removeFromCartFunc = (id) => { 
+        dispatch(removeFromCart(id))
+    }
     const [screenSize, setScreenSize] = useState(1300)
     const { cartItems } = useSelector(state => state.cart)
     const [totalCost , setTotalCost] = useState(0)
@@ -93,7 +98,7 @@ function ShoppingCartContainer() {
                                         <h3 className="product_cart_price">₹{product.price * product.quantity}</h3>
                                     </td>
                                     <td>
-                                        <img className="product_cart_delete_icon" src={require('./assets/close.png')} alt='' />
+                                        <img className="product_cart_delete_icon" onClick={() => removeFromCartFunc(product.product)} src={require('./assets/close.png')} alt='' />
                                     </td>
 
                                 </tr>
@@ -204,7 +209,7 @@ function ShoppingCartContainer() {
                         </div>
                             <div className="cart_products_container">
                                 {cartItems ? cartItems.map(product =>
-                                    <CartProductComponent product={product} key={product.name}/>
+                                    <CartProductComponent removeFromCartFunc={removeFromCartFunc}  product={product} key={product.name}/>
                                 ) : null}
                         </div>
                         <div className="shoppingCartNavBottom">
