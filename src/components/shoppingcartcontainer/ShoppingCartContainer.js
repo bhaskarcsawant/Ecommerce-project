@@ -31,7 +31,7 @@ function ShoppingCartContainer() {
     }
     useEffect(() => {
       let sum = 0;
-      cartItems.forEach((i) => (sum += i.price));
+      cartItems.forEach((i) => (sum += (i.price* i.quantity)));
       setTotalCost(sum);
     }, [cartItems]);
    
@@ -57,8 +57,8 @@ function ShoppingCartContainer() {
                             <tr className='cartTableHeaders'>
                                 <th style={{ textAlign: "left" }}>Product</th>
                                 {/* <th style={{ textAlign: "center" }} >Color</th>
-                                <th style={{ textAlign: "center" }}>Size</th>
-                                <th style={{ textAlign: "center" }}>Ammount</th> */}
+                                <th style={{ textAlign: "center" }}>Size</th> */}
+                                <th style={{ textAlign: "center" }}>Quantity</th>
                                 <th style={{ textAlign: "center" }}>Price</th>
                                 <th></th>
                             </tr>
@@ -87,7 +87,10 @@ function ShoppingCartContainer() {
                                         </div>
                                     </td> */}
                                     <td>
-                                        <h3 className="product_cart_price">₹{product.price}</h3>
+                                        <h3 className="product_cart_price">{product.quantity}</h3>
+                                    </td>
+                                    <td>
+                                        <h3 className="product_cart_price">₹{product.price * product.quantity}</h3>
                                     </td>
                                     <td>
                                         <img className="product_cart_delete_icon" src={require('./assets/close.png')} alt='' />
@@ -110,7 +113,7 @@ function ShoppingCartContainer() {
                                 </button>
                             </form>
                             <div className="cart_checkout_container">
-                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>{totalCost }</span></h3>
+                                <h3 className="product_cart_checkout_price">Total cost: <span className='checkout_price'>₹{totalCost }</span></h3>
                                 <button onClick={showPaymentComponent} className='add_to_cart_btn'>CHECKOUT</button>
                             </div>
                         </div>
@@ -166,7 +169,7 @@ function ShoppingCartContainer() {
                                                 <h3 className="product_cart_name">{product.name}</h3>
                                                 <h3 className="product_cartid">#676762</h3>
                                             </div>
-                                            <h3 className="product_cart_price">₹{product.price}</h3>
+                                            <h3 className="product_cart_price">₹{product.price * product.quantity}</h3>
                                         </div>
                                     ) : null}
                                 </div>
