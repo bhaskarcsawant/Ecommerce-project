@@ -23,10 +23,10 @@ function CartProductComponent({product}) {
                             <h3 className="product_cart_name">{product.name}</h3>
                             <h3 className="product_cartid">#676762</h3>
                         </div>
-                        {/* <div className="carted_product_size_color_container">
-                            <h3 className="product_cart_color">White</h3>
-                            <h3 className="product_cart_size">XL</h3>
-                        </div> */}
+                        <div className="carted_product_size_color_container">
+                            <h3 className="product_cart_color">{ product.quantity }</h3>
+                            {/* <h3 className="product_cart_size">XL</h3> */}
+                        </div>
                         <div className="carted_product_price_counter_container">
                             {/* <div className="counter_container">
                                 <div className="minus_icon" onClick={() => minus_counter()}>-</div>
