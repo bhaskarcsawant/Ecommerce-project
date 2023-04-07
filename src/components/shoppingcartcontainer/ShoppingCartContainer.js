@@ -10,16 +10,18 @@ function ShoppingCartContainer() {
     const removeFromCartFunc = (id) => { 
         dispatch(removeFromCart(id))
     }
+    const { shippingInfo } = useSelector(state => state.cart)
+   
     const [screenSize, setScreenSize] = useState(1300)
     const { cartItems } = useSelector(state => state.cart)
     const [totalCost, setTotalCost] = useState(0)
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [mobile, setMobile] = useState("")
-    const [address, setAddress] = useState("")
-    const [zip, setZip] = useState("")
-    const [city, setCity] = useState("")
+    const [firstName, setFirstName] = useState(shippingInfo.firstName)
+    const [lastName, setLastName] = useState(shippingInfo.lastName);
+    const [email, setEmail] = useState(shippingInfo.email);
+    const [mobile, setMobile] = useState(shippingInfo.mobile);
+    const [address, setAddress] = useState(shippingInfo.address);
+    const [zip, setZip] = useState(shippingInfo.zip);
+    const [city, setCity] = useState(shippingInfo.city);
     const [country, setCountry] = useState("India")
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
@@ -228,42 +230,51 @@ function ShoppingCartContainer() {
                       onChange={(e) => setFirstName(e.target.value)}
                       type="text"
                       placeholder="First Name"
+                      value={
+                        shippingInfo.firstName ? shippingInfo.firstName : ""
+                      }
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       placeholder="Last Name"
+                      value={shippingInfo.lastName ? shippingInfo.lastName : ""}
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Email"
+                      value={shippingInfo.email ? shippingInfo.email : ""}
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setMobile(e.target.value)}
                       type="text"
                       placeholder="Mobile No."
+                      value={shippingInfo.mobile ? shippingInfo.mobile : ""}
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
+                      value={shippingInfo.address ? shippingInfo.address : ""}
                     />
                     <input
                       className="ShiipingInput"
                       type="number"
                       placeholder="Postal Code"
                       onChange={(e) => setZip(e.target.value)}
+                      value={shippingInfo.zip ? shippingInfo.zip : null}
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="City"
                       onChange={(e) => setCity(e.target.value)}
+                      value={shippingInfo.city ? shippingInfo.city : ""}
                     />
                     <select
                       name=""
@@ -469,42 +480,51 @@ function ShoppingCartContainer() {
                       onChange={(e) => setFirstName(e.target.value)}
                       type="text"
                       placeholder="First Name"
+                      value={
+                        shippingInfo.firstName ? shippingInfo.firstName : ""
+                      }
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       placeholder="Last Name"
+                      value={shippingInfo.lastName ? shippingInfo.lastName : ""}
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Email"
+                      value={shippingInfo.email ? shippingInfo.email : ""}
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setMobile(e.target.value)}
                       type="text"
                       placeholder="Mobile No."
+                      value={shippingInfo.mobile ? shippingInfo.mobile : ""}
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
+                      value={shippingInfo.address ? shippingInfo.address : ""}
                     />
                     <input
                       className="ShiipingInput"
                       type="number"
                       placeholder="Postal Code"
                       onChange={(e) => setZip(e.target.value)}
+                      value={shippingInfo.zip ? shippingInfo.zip : null}
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="City"
                       onChange={(e) => setCity(e.target.value)}
+                      value={shippingInfo.city ? shippingInfo.city : ""}
                     />
                     <select
                       name=""
