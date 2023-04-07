@@ -23,6 +23,7 @@ function ShoppingCartContainer() {
     const [zip, setZip] = useState(shippingInfo.zip);
     const [city, setCity] = useState(shippingInfo.city);
     const [country, setCountry] = useState("India")
+    const [paymentMethod, setPaymentMethod] = useState();
     window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
     })
@@ -59,8 +60,14 @@ function ShoppingCartContainer() {
       city,
       country,
     };
+    let orderData = {
+        cartItems,
+        data,
+        paymentMethod
+    }
     const handlePlaceOrder = () => {
         dispatch(saveShippingInfo(data));
+        sessionStorage.setItem("orderInfo", JSON.stringify(orderData));
     }
 
     return (
@@ -297,15 +304,17 @@ function ShoppingCartContainer() {
                       type="radio"
                       id="cashfree"
                       name="cashfree"
-                      value="cashfree"
+                      value="stripe"
+                      onChange={(e) => setPaymentMethod(e.target.value)}
                     />
-                    <h2 className="shippingFormHeader">Cashfree Payments</h2>
+                    <h2 className="shippingFormHeader">Stripe Payments</h2>
                     <input
                       className="paymentradio"
                       type="radio"
                       id="cod"
                       name="cashfree"
                       value="cod"
+                      onChange={(e) => setPaymentMethod(e.target.value)}
                     />
                     <h2 className="shippingFormHeader">Cash on delivery</h2>
                   </div>
@@ -547,15 +556,17 @@ function ShoppingCartContainer() {
                       type="radio"
                       id="cashfree"
                       name="cashfree"
-                      value="cashfree"
+                      value="stripe"
+                      onChange={(e) => setPaymentMethod(e.target.value)}
                     />
-                    <h2 className="shippingFormHeader">Cashfree Payments</h2>
+                    <h2 className="shippingFormHeader">Stripe Payments</h2>
                     <input
                       className="paymentradio"
                       type="radio"
                       id="cod"
                       name="cashfree"
                       value="cod"
+                      onChange={(e) => setPaymentMethod(e.target.value)}
                     />
                     <h2 className="shippingFormHeader">Cash on delivery</h2>
                   </div>
