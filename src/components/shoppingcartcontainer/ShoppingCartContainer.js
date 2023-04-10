@@ -302,18 +302,10 @@ function ShoppingCartContainer() {
                     <input
                       className="paymentradio"
                       type="radio"
-                      id="cashfree"
-                      name="cashfree"
-                      value="stripe"
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <h2 className="shippingFormHeader">Stripe Payments</h2>
-                    <input
-                      className="paymentradio"
-                      type="radio"
                       id="cod"
-                      name="cashfree"
+                      name="cod"
                       value="cod"
+                      selected
                       onChange={(e) => setPaymentMethod(e.target.value)}
                     />
                     <h2 className="shippingFormHeader">Cash on delivery</h2>
@@ -554,17 +546,8 @@ function ShoppingCartContainer() {
                     <input
                       className="paymentradio"
                       type="radio"
-                      id="cashfree"
-                      name="cashfree"
-                      value="stripe"
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <h2 className="shippingFormHeader">Stripe Payments</h2>
-                    <input
-                      className="paymentradio"
-                      type="radio"
                       id="cod"
-                      name="cashfree"
+                      name="cod"
                       value="cod"
                       onChange={(e) => setPaymentMethod(e.target.value)}
                     />
@@ -574,36 +557,30 @@ function ShoppingCartContainer() {
                 <div className="checkoutMiniCart">
                   <h2 className="shippingFormHeader">Your Cart</h2>
                   <div className="miniCartContainer">
-                    <div className="productMiniCartRow">
-                      <img
-                        className=""
-                        id="product_icon_img"
-                        src={require("./assets/mask.png")}
-                        alt=""
-                      />
-                      <div className="product_cart_name_container">
-                        <h3 className="product_cart_name">
-                          T-Shirt Summer Vibes
-                        </h3>
-                        <h3 className="product_cartid">#676762</h3>
-                      </div>
-                      <h3 className="product_cart_price">₹199</h3>
-                    </div>
-                    <div className="productMiniCartRow">
-                      <img
-                        className=""
-                        id="product_icon_img"
-                        src={require("./assets/mask.png")}
-                        alt=""
-                      />
-                      <div className="product_cart_name_container">
-                        <h3 className="product_cart_name">
-                          T-Shirt Summer Vibes
-                        </h3>
-                        <h3 className="product_cartid">#676762</h3>
-                      </div>
-                      <h3 className="product_cart_price">₹199</h3>
-                    </div>
+                    {cartItems
+                      ? cartItems.map((product) => (
+                          <div
+                            key={product.name}
+                            className="productMiniCartRow"
+                          >
+                            <img
+                              className=""
+                              id="product_icon_img"
+                              src={product.image}
+                              alt=""
+                            />
+                            <div className="product_cart_name_container">
+                              <h3 className="product_cart_name">
+                                {product.name}
+                              </h3>
+                              <h3 className="product_cartid">#676762</h3>
+                            </div>
+                            <h3 className="product_cart_price">
+                              ₹{product.price * product.quantity}
+                            </h3>
+                          </div>
+                        ))
+                      : null}
                   </div>
                 </div>
               </div>

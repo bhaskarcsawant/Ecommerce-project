@@ -21,20 +21,12 @@ import { loadUser } from "./components/actions/userAction";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import ResetPassword from "./components/resetPassword/ResetPassword";
-import axios from "axios";
+
 
 
 function App() {
-
-  const [stripeApiKey, setStripeApiKey] = useState("")
-  
-  async function getStripApiKey() {
-    const { data } = await axios.get("/api/v1/stripekey");
-    setStripeApiKey(data.stripeKey);
-  }
   useEffect(() => {
     store.dispatch(loadUser())
-    getStripApiKey()
   },[])
   return (
     <>
