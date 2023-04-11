@@ -1,7 +1,7 @@
 import { CLEAR_ERRORS, CREATE_ORDER_FAIL, CREATE_ORDER_REQUEST, CREATE_ORDER_SUCCESS } from "../constants/orderConstants";
 
 
-export const orderReducer = (state = { product: {} }, action) => {
+export const orderReducer = (state = { }, action) => {
   switch (action.type) {
     case CREATE_ORDER_REQUEST:
       return {
@@ -11,7 +11,7 @@ export const orderReducer = (state = { product: {} }, action) => {
     case CREATE_ORDER_SUCCESS:
       return {
         loading: false,
-        productDetails: action.payload,
+        order: action.payload,
       };
     case CREATE_ORDER_FAIL:
       return {
