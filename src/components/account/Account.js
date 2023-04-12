@@ -36,7 +36,7 @@ function Account() {
                             <h2 className='userEmailId'>Email : {user.email}</h2>
                         </div>
                         <div className="userActionsContainer">
-                            <Link to="/admin/dashboard"><div className="UserActionsBt">My Orders</div></Link>
+                            <Link to="/account/myorders"><div className="UserActionsBt">My Orders</div></Link>
                             <Link to="/account/change-password"><div className="UserActionsBt">Change Password</div></Link>
                         </div>
                     </div>
