@@ -22,6 +22,9 @@ import ChangePassword from "./components/ChangePassword/ChangePassword";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import MyOrders from "./components/myOrdersComponent/MyOrders";
+import OrderDetails from "./components/orderDetails/OrderDetails";
+
+
 
 
 
@@ -41,6 +44,7 @@ function App() {
           <Route path="account" element={<Account />} />
           <Route path="account/change-password" element={<ChangePassword />} />
           <Route path="account/myorders" element={<MyOrders />} />
+          <Route path="account/orderdetails/:id" element={<OrderDetails />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="password/reset/:token" element={<ResetPassword />} />
           <Route path="register" element={<RegisterComponent />} />
@@ -49,13 +53,21 @@ function App() {
           <Route path="admin" element={<Admin />} />
           <Route path="admin/dashboard" element={<Dashboard />} />
           <Route path="admin/dashboard/addproduct/" element={<AddProduct />} />
-          <Route path="admin/dashboard/productlist/" element={<ProductList />} />
-          <Route path="admin/dashboard/categorylist/" element={<CategoryList />} />
+          <Route
+            path="admin/dashboard/productlist/"
+            element={<ProductList />}
+          />
+          <Route
+            path="admin/dashboard/categorylist/"
+            element={<CategoryList />}
+          />
           <Route path="admin/dashboard/orderlist/" element={<OrderList />} />
-          <Route path="admin/dashboard/transactionlist/" element={<TransactionList />} />
+          <Route
+            path="admin/dashboard/transactionlist/"
+            element={<TransactionList />}
+          />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
-
         </Routes>
       </Router>
     </>
