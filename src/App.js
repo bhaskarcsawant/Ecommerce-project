@@ -67,7 +67,7 @@ function App() {
             element={<TransactionList />}
           />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
-          <Route path="admin/dashboard/settings/" element={<Settings />} />
+    
         </Routes>
       </Router>
     </>
