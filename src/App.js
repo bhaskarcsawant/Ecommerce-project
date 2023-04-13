@@ -22,6 +22,12 @@ import ChangePassword from "./components/ChangePassword/ChangePassword";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import MyOrders from "./components/myOrdersComponent/MyOrders";
+import OrderDetails from "./components/orderDetailsComponent/OrderDetailsComponent";
+import OrderDetailsComponent from "./components/orderDetailsComponent/OrderDetailsComponent";
+
+
+
+
 
 
 
@@ -41,6 +47,7 @@ function App() {
           <Route path="account" element={<Account />} />
           <Route path="account/change-password" element={<ChangePassword />} />
           <Route path="account/myorders" element={<MyOrders />} />
+          <Route path="account/orderdetails/:id" element={<OrderDetailsComponent/>} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="password/reset/:token" element={<ResetPassword />} />
           <Route path="register" element={<RegisterComponent />} />
@@ -54,7 +61,6 @@ function App() {
           <Route path="admin/dashboard/orderlist/" element={<OrderList />} />
           <Route path="admin/dashboard/transactionlist/" element={<TransactionList />} />
           <Route path="admin/dashboard/settings/" element={<Settings />} />
-
         </Routes>
       </Router>
     </>

@@ -24,7 +24,7 @@ export const getProducts = (keyword = "", activePage = 1, checked = 'T-Shirt', p
 
 export const getProductDetails = (id) => async (dispatch) => {
     try {
-        console.log()
+
         dispatch({ type: PRODUCTS_DETAILS_REQUEST })
 
         const { data } = await axios.get(`/api/v1/product/${id}`)

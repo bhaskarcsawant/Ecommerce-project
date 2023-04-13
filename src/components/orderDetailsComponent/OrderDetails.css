@@ -1,0 +1,58 @@
+.orderDetailsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.orderDataContainer {
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--black);
+}
+
+.shippingInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.shippingData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ShippingInfoHeader {
+    font-size: var(--font-16);
+    font-weight: 500;
+}
+
+.ShippingInfoHeader1 {
+    font-size: var(--font-14);
+    font-weight: 600;
+}
+
+.ShippingInfoHeader2 {
+    font-size: var(--font-13);
+    font-weight: 500;
+}
+
+.orderItemsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.orderItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orderItemImage {
+    width: 60px;
+}
