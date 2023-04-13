@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "./OrderDetails.css";
 
-function OrderDetails() {
-          const navigate = useNavigate();
-          const dispatch = useDispatch();
-          const handleBack = () => {
-            navigate("/account/myorders/");
-          };
+function OrderDetailsComponent() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleBack = () => {
+    navigate("/account/myorders/");
+  };
   return (
     <>
       <div className="logoutBt" onClick={() => handleBack()}>
@@ -71,4 +71,4 @@ function OrderDetails() {
   );
 }
 
-export default OrderDetails
+export default OrderDetailsComponent;
