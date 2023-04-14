@@ -6,13 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadMyOrders } from '../actions/orderActions';
 
 function MyOrders() {
-      const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {orders} = useSelector((state) => state.myOrder)
       const handleBack = () => {
         navigate("/account");
-    };
-  useEffect(() => { dispatch(loadMyOrders()) }, [dispatch]);
+  };
+
+  useEffect(() => {
+      
+    dispatch(loadMyOrders())
+  }, [dispatch]);
 
   return (
     <>
