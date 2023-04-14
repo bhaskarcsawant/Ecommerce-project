@@ -1,14 +1,21 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./OrderDetails.css";
+import { getOrderDetails } from '../actions/orderActions';
 
 function OrderDetailsComponent() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+      const navigate = useNavigate();
+      const dispatch = useDispatch();
+  const { orderDetail } = useSelector((state) => state.orderDetails);
+  const {id} = useParams()
   const handleBack = () => {
     navigate("/account/myorders/");
   };
+    useEffect(() => {
+      dispatch(getOrderDetails(id));
+    }, [dispatch, id]);
+  console.log(orderDetail);
   return (
     <>
       <div className="logoutBt" onClick={() => handleBack()}>
