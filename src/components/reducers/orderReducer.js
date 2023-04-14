@@ -69,7 +69,7 @@ export const myOrderReducer = (state = {orders:[] }, action) => {
       return state;
   }
 };
-export const orderDetailsReducer = (state = {orderDetail:{} }, action) => {
+export const orderDetailsReducer = (state = {orderDetail:null }, action) => {
   switch (action.type) {
     case GET_ORDER_DETAILS_REQUEST:
       return {
