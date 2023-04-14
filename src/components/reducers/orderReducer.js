@@ -46,18 +46,15 @@ export const orderReducer = (state = { }, action) => {
 export const myOrderReducer = (state = {orders:[] }, action) => {
   switch (action.type) {
     case MY_ORDER_REQUEST:
-    case GET_ORDER_DETAILS_REQUEST:
       return {
         loading: true,
       };
     case MY_ORDER_SUCCESS:
-    case GET_ORDER_DETAILS_SUCCESS:
       return {
         loading: false,
         orders: action.payload,
       };
     case MY_ORDER_FAIL:
-    case GET_ORDER_DETAILS_FAIL:
       return {
         loading: false,
         error: action.payload,
