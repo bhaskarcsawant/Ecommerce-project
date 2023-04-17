@@ -91,7 +91,11 @@ function ShoppingCartContainer() {
     dispatch(createOrder(orderData));
     setError("")
     setSucess("Order Placed successfully... Navigating to orders page in 2 sec..")
-    setTimeout(() => navigate("/account"),2000);
+    localStorage.setItem(
+      "cartItems",
+      []
+    );
+    setTimeout(() => navigate("/account/"),2000);
     
     
       sessionStorage.setItem("orderInfo", JSON.stringify(orderData));
