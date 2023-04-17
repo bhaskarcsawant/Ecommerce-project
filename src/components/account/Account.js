@@ -21,29 +21,42 @@ function Account() {
         dispatch(logOut())
     }
     return (
-        <>
-            {loading ? (<Loader />) : (
-                <>
-                    {user.role === 'Admin' ? (
-
-                        <Link to="/admin/dashboard"><div className="AdminDashboardBt">Admin Dashboard</div></Link>
-                    ) : null}
-                    <h1 className='MyProfileHeader'>My Profile</h1>
-                    <a href='/account'><div className="logoutBt" onClick={() => handleLogout()}>Log Out</div></a>
-                    <div className="profileactionsContainer">
-                        <div className="userDataContainer">
-                            <h2 className='userName'>Name : {user.firstname} {user.lastname}.</h2>
-                            <h2 className='userEmailId'>Email : {user.email}</h2>
-                        </div>
-                        <div className="userActionsContainer">
-                            <Link to="/account/myorders"><div className="UserActionsBt">My Orders</div></Link>
-                            <Link to="/account/change-password"><div className="UserActionsBt">Change Password</div></Link>
-                        </div>
-                    </div>
-                </>
-            )}
-        </>
-    )
+      <>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {user && user.role === "Admin" ? (
+              <Link to="/admin/dashboard">
+                <div className="AdminDashboardBt">Admin Dashboard</div>
+              </Link>
+            ) : null}
+            <h1 className="MyProfileHeader">My Profile</h1>
+            <a href="/account">
+              <div className="logoutBt" onClick={() => handleLogout()}>
+                Log Out
+              </div>
+            </a>
+            <div className="profileactionsContainer">
+              <div className="userDataContainer">
+                <h2 className="userName">
+                  Name : {user && user.firstname} {user && user.lastname}.
+                </h2>
+                <h2 className="userEmailId">Email : {user && user.email}</h2>
+              </div>
+              <div className="userActionsContainer">
+                <Link to="/account/myorders">
+                  <div className="UserActionsBt">My Orders</div>
+                </Link>
+                <Link to="/account/change-password">
+                  <div className="UserActionsBt">Change Password</div>
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
+      </>
+    );
 }
 
 export default Account
