@@ -41,6 +41,25 @@ function AddProductModule() {
                         <input type="number" className='AddProductModuleFormInput' name='productname' placeholder='Enter product price' />
                     </div>
                     <div>
+                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product brand:</h2>
+                        <input type="text" className='AddProductModuleFormInput' name='productname' placeholder='Enter product brand' />
+                    </div>
+                </div>
+                <div className='AddProductModuleForm1'>
+                    <div>
+                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product descreption:</h2>
+                        <textarea className='AddProductModuleFormTextarea' cols="108" rows="8.5"></textarea>
+                    </div>
+                    
+                    <div>
+                        {/* <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product sub-category:</h2>
+
+                        <select name="" id="" defaultValue="6" className='AddProductModuleFormDropdown'>
+                            <option value="6">Printed</option>
+                            <option value="24">Shirts</option>
+                            <option value="60">Jeans</option>
+
+                        </select> */}
                         <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product category:</h2>
 
                         <select name="" id="" defaultValue="6" className='AddProductModuleFormDropdown'>
@@ -49,24 +68,7 @@ function AddProductModule() {
                             <option value="60">Jeans</option>
 
                         </select>
-
-                    </div>
-                </div>
-                <div className='AddProductModuleForm1'>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product descreption:</h2>
-                        <textarea className='AddProductModuleFormTextarea' cols="108" rows="8.5"></textarea>
-                    </div>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product sub-category:</h2>
-
-                        <select name="" id="" defaultValue="6" className='AddProductModuleFormDropdown'>
-                            <option value="6">Printed</option>
-                            <option value="24">Shirts</option>
-                            <option value="60">Jeans</option>
-
-                        </select>
-                        <div style={{ marginTop: '2rem' }}>
+                        {/* <div style={{ marginTop: '2rem' }}>
                             <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product size:</h2>
                             <div className='checkboxContainer'>
 
@@ -82,7 +84,11 @@ function AddProductModule() {
 
 
                             </div>
-                        </div>
+                        </div> */}
+                                        <div>
+                        <h2 style={{ marginTop: '2rem' }} className='AddProductModuleFormHeader' htmlFor="productname">Stock quantity:</h2>
+                        <input type="number" className='AddProductModuleFormInput' name='productname' placeholder='Enter stock quantity' />
+                    </div>
                     </div>
                 </div>
                 <div className='AddProductModuleForm1'>
