@@ -1,10 +1,26 @@
 import React, { useState } from 'react'
 import './AddProductModule.css'
 import close from './assets/close.png'
+import { useDispatch } from 'react-redux';
+import { createProduct } from '../actions/productsAction';
 
 function AddProductModule() {
+      const dispatch = useDispatch();
 
-    const [imageFiles, setImageFiles] = useState()
+    const [images, setImages] = useState([
+      {
+        public_id: "sample",
+        url: "https://imagescdn.planetfashion.in/img/app/product/6/619519-5965503.jpg?auto=format",
+      },
+    ]);
+    const [name, setName] = useState('')
+    const [descreption, setDescreption] = useState("");
+    const [brand, setBrand] = useState("");
+    const [price, setPrice] = useState(10);
+    const [category, setCategory] = useState("T-Shirt");
+    const [stock, setStock] = useState(10);
+    const [succes, setSucces] = useState('');
+
 
     const handleImageUpload = (event) => {
         console.log(event.target.files)
@@ -16,43 +32,92 @@ function AddProductModule() {
             for (let i = 0; i < arr.length; i++) {
                 ar1.push(URL.createObjectURL(arr[i]))
             }
-            setImageFiles(ar1);
+            setImages(ar1);
         }
     }
+    let productData = {
+        name,
+        descreption,
+        brand,
+        price : Number(price),
+        images,
+        category,
+        stock : Number(stock)
+    }
+    const handleCreateProduct = () => {
+        dispatch(createProduct(productData));
+        setSucces('Inserted Successfully');
+        setTimeout(() => setSucces(),2000);
+    }
     return (
-        <div className="AddProductModuleContainer">
-            <div className="AddProductModuleHeaderContainer">
-                <div className="ModuleHeaderContainer">
-                    <h2 className='AddProductModuleHeader1'>Create Product</h2>
-                </div>
-                <button id='createProductBt' type='button'>
-                    {/* <img className='exportIcon' src={exportIcon} alt="" /> */}
-                    Create Product <span id='plusIcon'>+</span>
-                </button>
+      <div className="AddProductModuleContainer">
+        <div className="AddProductModuleHeaderContainer">
+          <div className="ModuleHeaderContainer">
+            <h2 className="AddProductModuleHeader1">Create Product</h2>
+          </div>
+          <button
+            id="createProductBt"
+            type="button"
+            onClick={() => handleCreateProduct()}
+          >
+            {/* <img className='exportIcon' src={exportIcon} alt="" /> */}
+            Create Product <span id="plusIcon">+</span>
+          </button>
+        </div>
+        <div className="AddProductModuleFormContainer">
+          <div className="AddProductModuleForm">
+            <div>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product name:
+              </h2>
+              <input
+                type="text"
+                className="AddProductModuleFormInput"
+                name="productname"
+                placeholder="Enter product name"
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
-            <div className="AddProductModuleFormContainer">
-                <div className='AddProductModuleForm'>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product name:</h2>
-                        <input type="text" className='AddProductModuleFormInput' name='productname' placeholder='Enter product name' />
-                    </div>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product price:</h2>
-                        <input type="number" className='AddProductModuleFormInput' name='productname' placeholder='Enter product price' />
-                    </div>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product brand:</h2>
-                        <input type="text" className='AddProductModuleFormInput' name='productname' placeholder='Enter product brand' />
-                    </div>
-                </div>
-                <div className='AddProductModuleForm1'>
-                    <div>
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product descreption:</h2>
-                        <textarea className='AddProductModuleFormTextarea' cols="108" rows="8.5"></textarea>
-                    </div>
-                    
-                    <div>
-                        {/* <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product sub-category:</h2>
+            <div>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product price:
+              </h2>
+              <input
+                type="number"
+                className="AddProductModuleFormInput"
+                name="productname"
+                placeholder="Enter product price"
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            <div>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product brand:
+              </h2>
+              <input
+                type="text"
+                className="AddProductModuleFormInput"
+                name="productname"
+                placeholder="Enter product brand"
+                onChange={(e) => setBrand(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="AddProductModuleForm1">
+            <div>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product descreption:
+              </h2>
+              <textarea
+                className="AddProductModuleFormTextarea"
+                cols="108"
+                rows="8.5"
+                onChange={(e) => setDescreption(e.target.value)}
+              ></textarea>
+            </div>
+
+            <div>
+              {/* <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product sub-category:</h2>
 
                         <select name="" id="" defaultValue="6" className='AddProductModuleFormDropdown'>
                             <option value="6">Printed</option>
@@ -60,15 +125,22 @@ function AddProductModule() {
                             <option value="60">Jeans</option>
 
                         </select> */}
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product category:</h2>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product category:
+              </h2>
 
-                        <select name="" id="" defaultValue="6" className='AddProductModuleFormDropdown'>
-                            <option value="6">T-Shirts</option>
-                            <option value="24">Shirts</option>
-                            <option value="60">Jeans</option>
-
-                        </select>
-                        {/* <div style={{ marginTop: '2rem' }}>
+              <select
+                name=""
+                id=""
+                defaultValue="6"
+                className="AddProductModuleFormDropdown"
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="T-Shirt">T-Shirts</option>
+                <option value="Shirts">Shirts</option>
+                <option value="jeans">Jeans</option>
+              </select>
+              {/* <div style={{ marginTop: '2rem' }}>
                             <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product size:</h2>
                             <div className='checkboxContainer'>
 
@@ -85,37 +157,74 @@ function AddProductModule() {
 
                             </div>
                         </div> */}
-                                        <div>
-                        <h2 style={{ marginTop: '2rem' }} className='AddProductModuleFormHeader' htmlFor="productname">Stock quantity:</h2>
-                        <input type="number" className='AddProductModuleFormInput' name='productname' placeholder='Enter stock quantity' />
-                    </div>
-                    </div>
-                </div>
-                <div className='AddProductModuleForm1'>
-                    <div>
-
-                        <h2 className='AddProductModuleFormHeader' htmlFor="productname">Product images:</h2>
-
-                        <input className='imageUpload' type="file" multiple onChange={onImageChange} />
-                    </div>
-
-                    <div className='PreviewImgContainer'>
-                        {imageFiles ? (<h2 className='AddProductModuleFormHeader' htmlFor="productname">Preview:</h2>) : null}
-
-                        {imageFiles ? imageFiles.map((item) => {
-                            return (
-                                <div>
-                                    <img className="previewImageCloseIcon" key={item} src={close} alt=""></img>
-                                    <img className='previewImage' key={item} src={item} alt=""></img>
-                                </div>
-                            )
-
-                        }) : null}
-                    </div>
-                </div>
+              <div>
+                <h2
+                  style={{ marginTop: "2rem" }}
+                  className="AddProductModuleFormHeader"
+                  htmlFor="productname"
+                >
+                  Stock quantity:
+                </h2>
+                <input
+                  type="number"
+                  className="AddProductModuleFormInput"
+                  name="productname"
+                  placeholder="Enter stock quantity"
+                  onChange={(e) => setStock(e.target.value)}
+                />
+              </div>
             </div>
+          </div>
+          <div className="AddProductModuleForm1">
+            <div>
+              <h2 className="AddProductModuleFormHeader" htmlFor="productname">
+                Product images:
+              </h2>
+
+              <input
+                className="imageUpload"
+                type="file"
+                multiple
+                onChange={onImageChange}
+              />
+            </div>
+
+            <div className="PreviewImgContainer">
+              {images ? (
+                <h2
+                  className="AddProductModuleFormHeader"
+                  htmlFor="productname"
+                >
+                  Preview:
+                </h2>
+              ) : null}
+
+              {images
+                ? images.map((item) => {
+                    return (
+                      <div key={item}>
+                        <img
+                          className="previewImageCloseIcon"
+                          key={item}
+                          src={close}
+                          alt=""
+                        ></img>
+                        <img
+                          className="previewImage"
+                          key={item}
+                          src={item}
+                          alt=""
+                        ></img>
+                      </div>
+                    );
+                  })
+                : null}
+            </div>
+          </div>
         </div>
-    )
+        {succes ? <div className="success" style={{position:"absolute",top:"2rem",left:"40%"}}>{succes}</div> : null}
+      </div>
+    );
 }
 
 export default AddProductModule

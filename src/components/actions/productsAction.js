@@ -1,5 +1,16 @@
 import axios from "axios";
-import { ALL_PRODUCTS_REQUEST, ALL_PRODUCTS_SUCCESS, ALL_PRODUCTS_FAIL, PRODUCTS_DETAILS_REQUEST, PRODUCTS_DETAILS_SUCCESS, PRODUCTS_DETAILS_FAIL, CLEAR_ERRORS } from "../constants/productConstants";
+import {
+  ADMIN_CREATE_PRODUCTS_REQUEST,
+  ADMIN_CREATE_PRODUCTS_SUCCESS,
+  ADMIN_CREATE_PRODUCTS_FAIL,
+  ALL_PRODUCTS_REQUEST,
+  ALL_PRODUCTS_SUCCESS,
+  ALL_PRODUCTS_FAIL,
+  PRODUCTS_DETAILS_REQUEST,
+  PRODUCTS_DETAILS_SUCCESS,
+  PRODUCTS_DETAILS_FAIL,
+  CLEAR_ERRORS,
+} from "../constants/productConstants";
 
 
 export const getProducts = (keyword = "", activePage = 1, checked = 'T-Shirt', price = [0, 1500]) => async (dispatch) => {
@@ -39,6 +50,32 @@ export const getProductDetails = (id) => async (dispatch) => {
             type: PRODUCTS_DETAILS_FAIL,
             payload: error.response.data.message
         })
+    }
+}
+
+export const createProduct = (productData) => async (dispatch) => {
+    try {
+
+        dispatch({ type: ADMIN_CREATE_PRODUCTS_REQUEST });
+         const config = { headers: { "Content-Type": "application/json" } };
+
+        const { data } = await axios.post(
+          `/api/v1/admin/product/new/`,
+          productData,
+          config
+        );
+
+        dispatch({
+          type: ADMIN_CREATE_PRODUCTS_SUCCESS,
+          payload: data,
+        });
+
+    } catch (error) {
+        console.log(error)
+        dispatch({
+          type: ADMIN_CREATE_PRODUCTS_FAIL,
+          payload: error.response.data.message,
+        });
     }
 }
 

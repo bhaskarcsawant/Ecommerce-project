@@ -1,4 +1,9 @@
-import { ALL_PRODUCTS_REQUEST, ALL_PRODUCTS_SUCCESS, ALL_PRODUCTS_FAIL, PRODUCTS_DETAILS_REQUEST, PRODUCTS_DETAILS_SUCCESS, PRODUCTS_DETAILS_FAIL, CLEAR_ERRORS } from "../constants/productConstants";
+import {
+    ADMIN_CREATE_PRODUCTS_REQUEST,
+    ADMIN_CREATE_PRODUCTS_SUCCESS,
+    ADMIN_CREATE_PRODUCTS_FAIL,
+    ALL_PRODUCTS_REQUEST, ALL_PRODUCTS_SUCCESS, ALL_PRODUCTS_FAIL, PRODUCTS_DETAILS_REQUEST, PRODUCTS_DETAILS_SUCCESS, PRODUCTS_DETAILS_FAIL, CLEAR_ERRORS
+} from "../constants/productConstants";
 
 
 export const productReducer = (state = { products: [] }, action) => {
@@ -31,31 +36,58 @@ export const productReducer = (state = { products: [] }, action) => {
     }
 }
 
-export const productDetailsReducer = (state = { product: {} }, action) => {
+export const createProductReducer = (state = { product: {} }, action) => {
     switch (action.type) {
-        case PRODUCTS_DETAILS_REQUEST:
-            return {
-                loading: true,
-                ...state
-            }
-        case PRODUCTS_DETAILS_SUCCESS:
-            return {
-                loading: false,
-                productDetails: action.payload,
-            }
-        case PRODUCTS_DETAILS_FAIL:
-            return {
-                loading: false,
-                error: action.payload
-            }
-        case CLEAR_ERRORS:
-            return {
-                ...state,
-                error: null
-            }
+      case ADMIN_CREATE_PRODUCTS_REQUEST:
+        return {
+          loading: true,
+          ...state,
+        };
+      case ADMIN_CREATE_PRODUCTS_SUCCESS:
+        return {
+          loading: false,
+          product: action.payload,
+        };
+      case ADMIN_CREATE_PRODUCTS_FAIL:
+        return {
+          loading: false,
+          error: action.payload,
+        };
+      case CLEAR_ERRORS:
+        return {
+          ...state,
+          error: null,
+        };
 
-        default:
-            return state;
+      default:
+        return state;
     }
 }
+export const productDetailsReducer = (state = { product: {} }, action) => {
+  switch (action.type) {
+    case PRODUCTS_DETAILS_REQUEST:
+      return {
+        loading: true,
+        ...state,
+      };
+    case PRODUCTS_DETAILS_SUCCESS:
+      return {
+        loading: false,
+        productDetails: action.payload,
+      };
+    case PRODUCTS_DETAILS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
 
