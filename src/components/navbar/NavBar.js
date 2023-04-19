@@ -86,9 +86,8 @@ function NavBar({ theme, page }) {
             <div id='slide_nav' className={styles.slide_nav}>
                 <img onClick={() => handleCloseHamburger()} className={styles.hero_close_img} src={require('./assets/close.png')} alt='' />
                 <div className={styles.hamburger_links}>
-                    <a href='./index.html'>Men</a>
-                    <a href='./index.html'>Women</a>
-                    <a href='./index.html'>Kids</a>
+                    <a href='/account'>Account</a>
+                    <a href='/login'>login</a>
                 </div>
             </div>
             <div id='slide_nav_bg' className={styles.slide_nav_bg}></div>
