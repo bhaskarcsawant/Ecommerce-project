@@ -7,12 +7,7 @@ import { createProduct } from '../actions/productsAction';
 function AddProductModule() {
       const dispatch = useDispatch();
 
-    const [images, setImages] = useState([
-      {
-        public_id: "sample",
-        url: "https://imagescdn.planetfashion.in/img/app/product/6/619519-5965503.jpg?auto=format",
-      },
-    ]);
+    const [images, setImages] = useState([]);
     const [name, setName] = useState('')
     const [descreption, setDescreption] = useState("");
     const [brand, setBrand] = useState("");
@@ -22,19 +17,6 @@ function AddProductModule() {
     const [succes, setSucces] = useState('');
 
 
-    const handleImageUpload = (event) => {
-        console.log(event.target.files)
-    }
-    const onImageChange = (event) => {
-        if (event.target.files) {
-            let arr = event.target.files
-            let ar1 = []
-            for (let i = 0; i < arr.length; i++) {
-                ar1.push(URL.createObjectURL(arr[i]))
-            }
-            setImages(ar1);
-        }
-    }
     let productData = {
         name,
         descreption,
@@ -44,7 +26,8 @@ function AddProductModule() {
         category,
         stock : Number(stock)
     }
-    const handleCreateProduct = () => {
+  const handleCreateProduct = () => {
+      console.log(images)
         dispatch(createProduct(productData));
         setSucces('Inserted Successfully');
         setTimeout(() => setSucces(),2000);
@@ -182,10 +165,14 @@ function AddProductModule() {
               </h2>
 
               <input
-                className="imageUpload"
-                type="file"
-                multiple
-                onChange={onImageChange}
+                type="text"
+                className="AddProductModuleFormInput"
+                name="productname"
+                placeholder="Enter image url"
+                onChange={(e) => setImages([       {
+                  public_id: "sample",
+                  url: e.target.value,
+                }])}
               />
             </div>
 
@@ -205,14 +192,14 @@ function AddProductModule() {
                       <div key={item}>
                         <img
                           className="previewImageCloseIcon"
-                          key={item}
+                          // key={item}
                           src={close}
                           alt=""
                         ></img>
                         <img
                           className="previewImage"
                           key={item}
-                          src={item}
+                          src={item.url}
                           alt=""
                         ></img>
                       </div>
@@ -222,7 +209,14 @@ function AddProductModule() {
             </div>
           </div>
         </div>
-        {succes ? <div className="success" style={{position:"absolute",top:"2rem",left:"40%"}}>{succes}</div> : null}
+        {succes ? (
+          <div
+            className="success"
+            style={{ position: "absolute", top: "2rem", left: "40%" }}
+          >
+            {succes}
+          </div>
+        ) : null}
       </div>
     );
 }

@@ -71,7 +71,7 @@ export const createProduct = (productData) => async (dispatch) => {
         });
 
     } catch (error) {
-        console.log(error)
+        console.log(error.response.data);
         dispatch({
           type: ADMIN_CREATE_PRODUCTS_FAIL,
           payload: error.response.data.message,
