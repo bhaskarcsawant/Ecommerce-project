@@ -32,11 +32,11 @@ function Account() {
               </Link>
             ) : null}
             <h1 className="MyProfileHeader">My Profile</h1>
-            <a href="/account">
+            {/* <a href="/account"> */}
               <div className="logoutBt" onClick={() => handleLogout()}>
                 Log Out
               </div>
-            </a>
+            {/* </a> */}
             <div className="profileactionsContainer">
               <div className="userDataContainer">
                 <h2 className="userName">
