@@ -17,10 +17,10 @@ function LoginComponent() {
 
     }
     useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/account')
-        }
-    }, [navigate, isAuthenticated])
+      if (isAuthenticated) {
+        navigate("/account");
+      }
+    }, [navigate, isAuthenticated]);
 
     return (
         <>
