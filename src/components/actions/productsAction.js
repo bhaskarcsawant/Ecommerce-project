@@ -17,7 +17,7 @@ let API_HOST = "https://ecommerce-project-backend.vercel.app";
 export const getProducts = (keyword = "", activePage = 1, checked = 'T-Shirt', price = [0, 1500]) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST })
-        let link = `${process.env.API_HOST}/api/v1/products?keyword=${keyword}&page=${activePage}&category=${checked}&price[gt]=${price[0]}&price[lt]=${price[1]}`;
+        let link = `${API_HOST}/api/v1/products?keyword=${keyword}&page=${activePage}&category=${checked}&price[gt]=${price[0]}&price[lt]=${price[1]}`;
 
         const { data } = await axios.get(link)
 
@@ -40,7 +40,7 @@ export const getProductDetails = (id) => async (dispatch) => {
         dispatch({ type: PRODUCTS_DETAILS_REQUEST })
 
         const { data } = await axios.get(
-          `${process.env.API_HOST}/api/v1/product/${id}`
+          `${API_HOST}/api/v1/product/${id}`
         );
 
         dispatch({
@@ -63,7 +63,7 @@ export const createProduct = (productData) => async (dispatch) => {
          const config = { headers: { "Content-Type": "application/json" } };
 
         const { data } = await axios.post(
-          `${process.env.API_HOST}/api/v1/admin/product/new/`,
+          `${API_HOST}/api/v1/admin/product/new/`,
           productData,
           config
         );
