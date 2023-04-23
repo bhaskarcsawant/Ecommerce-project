@@ -28,7 +28,11 @@ export const login = (email, password) => async (dispatch) => {
         dispatch({ type: LOGIN_REQUEST });
         const config = { headers: { "Content-Type": "application/json" } };
 
-        const { data } = await axios.post(`/api/v1/login`, { email, password }, config)
+        const { data } = await axios.post(
+          `${process.env.API_HOST}/api/v1/login`,
+          { email, password },
+          config
+        );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
     } catch (error) {
         dispatch({ type: LOGIN_FAIL, payload: error.response.data.message })
@@ -40,7 +44,11 @@ export const register = (firstname, lastname, mobile, email, password) => async 
         dispatch({ type: REGISTER_REQUEST })
         const config = { headers: { "Content-Type": "application/json" } };
 
-        const { data } = await axios.post(`/api/v1/register`, { firstname, lastname, mobile, email, password }, config)
+        const { data } = await axios.post(
+          `${process.env.API_HOST}/api/v1/register`,
+          { firstname, lastname, mobile, email, password },
+          config
+        );
         dispatch({ type: REGISTER_SUCCESS, payload: data })
     } catch (error) {
         dispatch({ type: REGISTER_FAIL, payload: error.response.data.message })
@@ -52,7 +60,7 @@ export const updatePassword = (oldPassword,newPassword,confirmPassword) => async
         const config = { headers: { "Content-Type": "application/json" } };
 
         const { data } = await axios.put(
-          `/api/v1/password/update/`,
+          `${process.env.API_HOST}/api/v1/password/update/`,
           { oldPassword, newPassword, confirmPassword },
           config
         );
@@ -71,7 +79,7 @@ export const resetPassword = (token,password, confirmPassword) => async (dispatc
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/password/reset/${token}`,
+      `${process.env.API_HOST}/api/v1/password/reset/${token}`,
       { password, confirmPassword },
       config
     );
@@ -88,7 +96,7 @@ export const loadUser = () => async (dispatch) => {
     try {
         dispatch({ type: LOAD_USER_REQUEST });
 
-        const { data } = await axios.get(`/api/v1/me`)
+        const { data } = await axios.get(`${process.env.API_HOST}/api/v1/me`);
         // console.log(data)
         dispatch({ type: LOAD_USER_SUCCESS, payload: data })
     } catch (error) {
@@ -97,7 +105,7 @@ export const loadUser = () => async (dispatch) => {
 }
 export const logOut = () => async (dispatch) => {
     try {
-        await axios.get(`/api/v1/logout`)
+        await axios.get(`${process.env.API_HOST}/api/v1/logout`);
         // console.log(data)
         dispatch({ type: LOGOUT_USER_SUCCESS })
     } catch (error) {
@@ -111,7 +119,7 @@ export const forgetPassword = (email) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/api/v1/password/forgot`,
+      `${process.env.API_HOST}/api/v1/password/forgot`,
       { email },
       config
     );
