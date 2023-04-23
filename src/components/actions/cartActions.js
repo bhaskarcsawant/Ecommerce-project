@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const addItemToCart = (id,quantity) =>async (dispatch,getState) => {
 
-      let link = `/api/v1/product/${id}`;
+      let link = `${process.env.API_HOST}/api/v1/product/${id}`;
 
   const { data } = await axios.get(link);
   console.log(data);

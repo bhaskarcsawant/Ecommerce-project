@@ -19,9 +19,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
         dispatch({ type: CREATE_ORDER_REQUEST })
         const config = { headers: { "Content-Type": "application/json" } };
         const { data } = await axios.post(
-        `/api/v1/order/new`,
-        order,
-        config
+          `${process.env.API_HOST}/api/v1/order/new`,
+          order,
+          config
         );
         dispatch({ type: CREATE_ORDER_SUCCESS, payload: data })
         console.log(data)
@@ -38,7 +38,9 @@ export const loadMyOrders = () => async (dispatch) => {
     try {
         dispatch({ type: MY_ORDER_REQUEST })
     
-        const { data } = await axios.get(`/api/v1/orders/me`);
+        const { data } = await axios.get(
+          `${process.env.API_HOST}/api/v1/orders/me`
+        );
         dispatch({ type: MY_ORDER_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
@@ -52,7 +54,9 @@ export const getOrderDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: GET_ORDER_DETAILS_REQUEST });
     
-        const { data } = await axios.get(`/api/v1/admin/order/${id}`);
+        const { data } = await axios.get(
+          `${process.env.API_HOST}/api/v1/admin/order/${id}`
+        );
         dispatch({ type: GET_ORDER_DETAILS_SUCCESS, payload: data });
         
     } catch (error) {
