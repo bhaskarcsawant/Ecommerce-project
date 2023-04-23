@@ -1,9 +1,10 @@
 import { ADD_TO_CART,REMOVE_FROM_CART, SAVE_SHIPPING_INFO } from "../constants/cartConstants";
 import axios from "axios";
 
+let API_HOST = "https://ecommerce-project-backend.vercel.app";
 export const addItemToCart = (id,quantity) =>async (dispatch,getState) => {
 
-      let link = `${process.env.API_HOST}/api/v1/product/${id}`;
+      let link = `${API_HOST}/api/v1/product/${id}`;
 
   const { data } = await axios.get(link);
   console.log(data);

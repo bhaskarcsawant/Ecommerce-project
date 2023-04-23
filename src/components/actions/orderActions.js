@@ -13,13 +13,13 @@ import {
 
 import axios from "axios";
 
-
+let API_HOST = "https://ecommerce-project-backend.vercel.app";
 export const createOrder = (order) => async (dispatch, getState) => {
     try {
         dispatch({ type: CREATE_ORDER_REQUEST })
         const config = { headers: { "Content-Type": "application/json" } };
         const { data } = await axios.post(
-          `${process.env.API_HOST}/api/v1/order/new`,
+          `${API_HOST}/api/v1/order/new`,
           order,
           config
         );
@@ -39,7 +39,7 @@ export const loadMyOrders = () => async (dispatch) => {
         dispatch({ type: MY_ORDER_REQUEST })
     
         const { data } = await axios.get(
-          `${process.env.API_HOST}/api/v1/orders/me`
+          `${API_HOST}/api/v1/orders/me`
         );
         dispatch({ type: MY_ORDER_SUCCESS, payload: data })
     } catch (error) {
@@ -55,7 +55,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
         dispatch({ type: GET_ORDER_DETAILS_REQUEST });
     
         const { data } = await axios.get(
-          `${process.env.API_HOST}/api/v1/admin/order/${id}`
+          `${API_HOST}/api/v1/admin/order/${id}`
         );
         dispatch({ type: GET_ORDER_DETAILS_SUCCESS, payload: data });
         
