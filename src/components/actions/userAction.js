@@ -31,9 +31,9 @@ export const login = (email, password) => async (dispatch) => {
 
         const { data } = await axios.post(
           `${API_HOST}/api/v1/login`,
-          { withCredentials: true },
           { email, password },
           config,
+          { withCredentials: true },
         );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
     } catch (error) {
