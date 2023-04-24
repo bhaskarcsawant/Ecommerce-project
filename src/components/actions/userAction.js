@@ -32,7 +32,8 @@ export const login = (email, password) => async (dispatch) => {
         const { data } = await axios.post(
           `${API_HOST}/api/v1/login`,
           { email, password },
-          config
+          config,
+          { withCredentials: true },
         );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
     } catch (error) {
@@ -97,7 +98,9 @@ export const loadUser = () => async (dispatch) => {
     try {
         dispatch({ type: LOAD_USER_REQUEST });
 
-        const { data } = await axios.get(`${API_HOST}/api/v1/me`);
+        const { data } = await axios.get(`${API_HOST}/api/v1/me`, {
+          withCredentials: true,
+        });
         // console.log(data)
         dispatch({ type: LOAD_USER_SUCCESS, payload: data })
     } catch (error) {
