@@ -21,9 +21,6 @@ import {
   RESET_PASSWORD_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
 
 let API_HOST = "https://ecommerce-project-backend.vercel.app";
 
@@ -37,13 +34,7 @@ export const login = (email, password) => async (dispatch) => {
           { email, password },
           config,
           { withCredentials: true },
-      );
-      cookies.set("token", data.token, {
-        expires: new Date(
-          Date.now() + 5 * 24 * 60 * 60 * 1000
-        ),
-        path: "/",
-      });
+        );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
     } catch (error) {
         dispatch({ type: LOGIN_FAIL, payload: error.response.data.message })
