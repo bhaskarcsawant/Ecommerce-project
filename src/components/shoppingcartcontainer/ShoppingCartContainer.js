@@ -217,7 +217,7 @@ function ShoppingCartContainer() {
                     src={require("./assets/arrow1.png")}
                     alt=""
                   />
-                  <Link style={{ color: "black" }} to={"/"}>
+                  <Link style={{ color: "black",fontSize: "var(--font-10)" }} to={"/"}>
                     <h3 className="cart_continue_header">Continue Shopping</h3>
                   </Link>
                 </div>
@@ -451,7 +451,7 @@ function ShoppingCartContainer() {
                       src={require("./assets/arrow1.png")}
                       alt=""
                     />
-                    <Link style={{ color: "black" ,fontSize: "var(--font-16)"}} to={"/"}>
+                    <Link style={{ color: "black" ,fontSize: "var(--font-10)"}} to={"/"}>
                       <h3 className="cart_continue_header">
                         Continue Shopping
                       </h3>
