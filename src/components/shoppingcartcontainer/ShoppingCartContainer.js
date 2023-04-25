@@ -217,7 +217,7 @@ function ShoppingCartContainer() {
                     src={require("./assets/arrow1.png")}
                     alt=""
                   />
-                  <Link to={"https://ecommerce-project-frontend.vercel.app/"}>
+                  <Link style={{ color: "black" }} to={"/"}>
                     <h3 className="cart_continue_header">Continue Shopping</h3>
                   </Link>
                 </div>
@@ -451,7 +451,11 @@ function ShoppingCartContainer() {
                       src={require("./assets/arrow1.png")}
                       alt=""
                     />
-                    <h3 className="cart_continue_header">Continue Shopping</h3>
+                    <Link style={{ color: "black" }} to={"/"}>
+                      <h3 className="cart_continue_header">
+                        Continue Shopping
+                      </h3>
+                    </Link>
                   </div>
                   <h3 className="product_cart_checkout_price">
                     Total cost:{" "}

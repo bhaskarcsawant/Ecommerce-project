@@ -13,11 +13,11 @@
 
 .homeBt {
     padding: 1rem;
-    background-color: var(--red);
+    background-color: var(--yellow);
     border-radius: 1rem;
     position: absolute;
-    right: 12rem;
-    top: 1.6rem;
+    right: 5rem;
+    top: 6.5rem;
     font-size: var(--font-16);
     font-weight: 600;
     color: white;
