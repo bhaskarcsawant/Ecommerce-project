@@ -27,13 +27,13 @@ let API_HOST = "https://ecommerce-project-backend.vercel.app";
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_REQUEST });
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: {"Accept": "application/json", "Content-Type": "application/json" } };
 
         const { data } = await axios.post(
           `${API_HOST}/api/v1/login`,
           { email, password },
-          config,
           { withCredentials: true },
+          config,
         );
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
     } catch (error) {
