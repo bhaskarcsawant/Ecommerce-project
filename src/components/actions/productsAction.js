@@ -19,7 +19,7 @@ export const getProducts = (keyword = "", activePage = 1, checked = 'T-Shirt', p
         dispatch({ type: ALL_PRODUCTS_REQUEST })
         let link = `${API_HOST}/api/v1/products?keyword=${keyword}&page=${activePage}&category=${checked}&price[gt]=${price[0]}&price[lt]=${price[1]}`;
 
-        const { data } = await axios.get(link)
+        const { data } = await axios.get(link, { withCredentials: true });
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
@@ -39,9 +39,9 @@ export const getProductDetails = (id) => async (dispatch) => {
 
         dispatch({ type: PRODUCTS_DETAILS_REQUEST })
 
-        const { data } = await axios.get(
-          `${API_HOST}/api/v1/product/${id}`
-        );
+        const { data } = await axios.get(`${API_HOST}/api/v1/product/${id}`, {
+          withCredentials: true,
+        });
 
         dispatch({
             type: PRODUCTS_DETAILS_SUCCESS,
@@ -65,6 +65,7 @@ export const createProduct = (productData) => async (dispatch) => {
         const { data } = await axios.post(
           `${API_HOST}/api/v1/admin/product/new/`,
           productData,
+          { withCredentials: true },
           config
         );
 

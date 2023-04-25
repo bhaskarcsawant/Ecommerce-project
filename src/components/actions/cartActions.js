@@ -6,7 +6,7 @@ export const addItemToCart = (id,quantity) =>async (dispatch,getState) => {
 
       let link = `${API_HOST}/api/v1/product/${id}`;
 
-  const { data } = await axios.get(link);
+  const { data } = await axios.get(link, { withCredentials: true });
   console.log(data);
       dispatch({
         type: ADD_TO_CART,

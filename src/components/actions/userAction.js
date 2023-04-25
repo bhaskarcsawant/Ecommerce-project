@@ -49,6 +49,7 @@ export const register = (firstname, lastname, mobile, email, password) => async 
         const { data } = await axios.post(
           `${API_HOST}/api/v1/register`,
           { firstname, lastname, mobile, email, password },
+          { withCredentials: true },
           config
         );
         dispatch({ type: REGISTER_SUCCESS, payload: data })
@@ -64,6 +65,7 @@ export const updatePassword = (oldPassword,newPassword,confirmPassword) => async
         const { data } = await axios.put(
           `${API_HOST}/api/v1/password/update/`,
           { oldPassword, newPassword, confirmPassword },
+          { withCredentials: true },
           config
         );
         dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data });
@@ -83,6 +85,7 @@ export const resetPassword = (token,password, confirmPassword) => async (dispatc
     const { data } = await axios.put(
       `${API_HOST}/api/v1/password/reset/${token}`,
       { password, confirmPassword },
+      { withCredentials: true },
       config
     );
     dispatch({ type: RESET_PASSWORD_SUCCESS, payload: "Password Updated successFully." });
@@ -109,7 +112,7 @@ export const loadUser = () => async (dispatch) => {
 }
 export const logOut = () => async (dispatch) => {
     try {
-        await axios.get(`${API_HOST}/api/v1/logout`);
+        await axios.get(`${API_HOST}/api/v1/logout`, { withCredentials: true });
         // console.log(data)
         dispatch({ type: LOGOUT_USER_SUCCESS })
     } catch (error) {
@@ -125,6 +128,7 @@ export const forgetPassword = (email) => async (dispatch) => {
     const { data } = await axios.post(
       `${API_HOST}/api/v1/password/forgot`,
       { email },
+      { withCredentials: true },
       config
     );
       dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });

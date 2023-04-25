@@ -21,6 +21,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         const { data } = await axios.post(
           `${API_HOST}/api/v1/order/new`,
           order,
+          { withCredentials: true },
           config
         );
         dispatch({ type: CREATE_ORDER_SUCCESS, payload: data })
@@ -56,7 +57,8 @@ export const getOrderDetails = (id) => async (dispatch) => {
         dispatch({ type: GET_ORDER_DETAILS_REQUEST });
     
         const { data } = await axios.get(
-          `${API_HOST}/api/v1/admin/order/${id}`
+          `${API_HOST}/api/v1/admin/order/${id}`,
+          { withCredentials: true }
         );
         dispatch({ type: GET_ORDER_DETAILS_SUCCESS, payload: data });
         
