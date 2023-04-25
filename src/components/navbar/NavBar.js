@@ -49,7 +49,7 @@ function NavBar({ theme, page }) {
                 }}>
                     <div className={styles.nav_link_container}>
                         <div className={styles.nav_item_container}>
-                            <a className={styles[(theme === 'dark' ? 'nav_logo_dark' : 'nav_logo')]} href='./index.html'>E-Shop</a>
+                            <a className={styles[(theme === 'dark' ? 'nav_logo_dark' : 'nav_logo')]} href='./index.html'>E-Store</a>
                         </div>
                         <div className={styles.nav_item_container1}>
                             <a className={styles[(theme === 'dark' ? 'a_dark' : '')]} href='./index.html'>Men</a>
