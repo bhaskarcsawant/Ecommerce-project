@@ -33,9 +33,12 @@ function Account() {
             ) : null}
             <h1 className="MyProfileHeader">My Profile</h1>
             {/* <a href="/account"> */}
-              <div className="logoutBt" onClick={() => handleLogout()}>
-                Log Out
-              </div>
+            <div className="logoutBt" onClick={() => handleLogout()}>
+              Log Out
+            </div>
+            <Link to="/">
+              <div className="homeBt">Home</div>
+            </Link>
             {/* </a> */}
             <div className="profileactionsContainer">
               <div className="userDataContainer">
