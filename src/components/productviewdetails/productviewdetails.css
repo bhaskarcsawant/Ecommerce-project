@@ -378,7 +378,7 @@
 }
 
 .alertMsg {
-    position: absolute;
+    position: fixed;
     right: 3rem;
     bottom: 3rem;
     padding: 2rem;

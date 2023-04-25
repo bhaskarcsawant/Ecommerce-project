@@ -5,7 +5,7 @@ import "./shoppingcartcontainer.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart, saveShippingInfo } from '../actions/cartActions'
 import { createOrder } from '../actions/orderActions'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function ShoppingCartContainer() {
   const dispatch = useDispatch()
@@ -103,9 +103,23 @@ function ShoppingCartContainer() {
 
     return (
       <>
-        {error ? <div className='error' style={{ position: "fixed",bottom:"2vh",right:"3vh"}}>{error}</div> : null}
-        {sucess ? <div className='success' style={{ position: "fixed",bottom:"2vh",right:"3vh"}}>{sucess}</div> : null}
-        
+        {error ? (
+          <div
+            className="error"
+            style={{ position: "fixed", bottom: "2vh", right: "3vh" }}
+          >
+            {error}
+          </div>
+        ) : null}
+        {sucess ? (
+          <div
+            className="success"
+            style={{ position: "fixed", bottom: "2vh", right: "3vh" }}
+          >
+            {sucess}
+          </div>
+        ) : null}
+
         {screenSize > 800 ? (
           <div className="ShoppingCartContainer">
             <div className="cartListContainer" id="cartListContainer">
@@ -203,7 +217,9 @@ function ShoppingCartContainer() {
                     src={require("./assets/arrow1.png")}
                     alt=""
                   />
-                  <h3 className="cart_continue_header">Continue Shopping</h3>
+                  <Link to={"https://ecommerce-project-frontend.vercel.app/"}>
+                    <h3 className="cart_continue_header">Continue Shopping</h3>
+                  </Link>
                 </div>
                 <form className="cart_promo_form">
                   <input
@@ -271,21 +287,18 @@ function ShoppingCartContainer() {
                       onChange={(e) => setFirstName(e.target.value)}
                       type="text"
                       placeholder="First Name"
-        
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       placeholder="Last Name"
-                  
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Email"
-            
                     />
                     <input
                       className="ShiipingInput"
@@ -299,21 +312,18 @@ function ShoppingCartContainer() {
                       type="text"
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
-            
                     />
                     <input
                       className="ShiipingInput"
                       type="number"
                       placeholder="Postal Code"
                       onChange={(e) => setZip(e.target.value)}
-            
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="City"
                       onChange={(e) => setCity(e.target.value)}
-              
                     />
                     <select
                       name=""
@@ -513,21 +523,18 @@ function ShoppingCartContainer() {
                       onChange={(e) => setFirstName(e.target.value)}
                       type="text"
                       placeholder="First Name"
-     
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       placeholder="Last Name"
-              
                     />
                     <input
                       className="ShiipingInput"
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Email"
-       
                     />
                     <input
                       className="ShiipingInput"
@@ -541,21 +548,18 @@ function ShoppingCartContainer() {
                       type="text"
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
-               
                     />
                     <input
                       className="ShiipingInput"
                       type="number"
                       placeholder="Postal Code"
                       onChange={(e) => setZip(e.target.value)}
-            
                     />
                     <input
                       className="ShiipingInput"
                       type="text"
                       placeholder="City"
                       onChange={(e) => setCity(e.target.value)}
-             
                     />
                     <select
                       name=""
